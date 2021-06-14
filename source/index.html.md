@@ -54,45 +54,45 @@ The base URL for all requests to the Unqueue API is:
 
 ### Request
 
-| Prop                 |      Example       |                 Type                 | Description                                                           |
-| :------------------- | :----------------: | :----------------------------------: | --------------------------------------------------------------------- |
-| accepted             |       false        |                `bool`                | Whether or not the order was accepted                                 |
-| cancelled            |       false        |                `bool`                | Whether or not the order was cancelled                                |
-| carDetails           |    Blue Mazda 3    |               `string`               | Description of the shopper's car, optionally entered at checkout      |
-| cashAmount           |         26         |               `number`               | The amount of cash the shopper is paying with, entered at checkout    |
-| completed            |        true        |                `bool`                |                                                                       |
-| count                |         5          |               `number`               | The number of items in the order                                      |
-| createdAt            |         \*         |             `Timestamp`              | When the order was created.                                           |
-| customerEmail        |   some@email.com   |               `string`               | The shopper's email                                                   |
-| customerLicense      |      PDC9543       |               `string`               | The shopper's license plate, entered at checkout                      |
-| customerPhone        |    +18687551234    |               `string`               | The shopper's phone number                                            |
-| deliveryAddress      |         -          |               `object`               | Saved from the associated user document                               |
-| deliveryFee          |         20         |               `number`               |                                                                       |
-| deliveryWindow       |  Monday 17th May   |            `dddd Do MMMM`            | The selected date for delivery in string format                       |
-| driverEnRoute        |       false        |                `bool`                |                                                                       |
-| onHiredDriverNetwork |        true        |                `bool`                | True if this order is on the Unqueue Driver network                   |
-| orderNumber          |        A070        |               `string`               |                                                                       |
-| owner                |      John Doe      |               `string`               |                                                                       |
-| ownerId              |     userId123      |               `string`               |                                                                       |
-| packTimeInMinutes    |         20         |               `number`               |                                                                       |
-| packed               |        true        |                `bool`                |                                                                       |
-| packedAt             |         \*         |             `Timestamp`              | Automatically generated                                               |
-| paymentMethod        |    Credit Card     |               `string`               |                                                                       |
-| pickupTimeDate       |         -          |            `bool/object`             | False if shopper picking up ASAP. Object if it is a pre-order         |
-| requiresPayment      |         \*         |                `bool`                |                                                                       |
-| source               |        web         |             `web \| app`             | The platform the order was placed from                                |
-| specialNotes         | Some special notes |               `string`               | Special notes attached to the order by the shopper                    |
-| status               |      Pending       |               `string`               | Defaults to 'Pending'                                                 |
-| storeAddress         |         \*         |               `object`               | Saved from the associated company document                            |
-| storeHours           |         \*         |               `object`               | Saved from the associated company document                            |
-| storeId              |     storeId123     |               `string`               | Saved from the associated company document                            |
-| storeLogo            |    someurl.com     |               `string`               | The logo of the company this order was placed from                    |
-| storeName            |  Joe's Sandwiches  |               `string`               | Saved from the associated company document                            |
-| storePhone           |    +18687441234    |               `string`               | Saved from the associated company document                            |
-| timeWindow           |  daytimeDelivery   | `daytimeDelivery \| eveningDelivery` |                                                                       |
-| total                |        124         |               `float`                | The total cost of the order including delivery, addons and variations |
-| type                 |      Curbside      |               `string`               | The pickup method of the order                                        |
-| unavailableItems     |       false        |                `bool`                |                                                                       |
+| Prop                 |                 Type                 |                              Description                              |
+| :------------------- | :----------------------------------: | :-------------------------------------------------------------------: |
+| accepted             |                `bool`                |                 Whether or not the order was accepted                 |
+| cancelled            |                `bool`                |                Whether or not the order was cancelled                 |
+| carDetails           |               `string`               |   Description of the shopper's car, optionally entered at checkout    |
+| cashAmount           |               `number`               |  The amount of cash the shopper is paying with, entered at checkout   |
+| completed            |                `bool`                |                                                                       |
+| count                |               `number`               |                   The number of items in the order                    |
+| createdAt            |             `Timestamp`              |                      When the order was created.                      |
+| customerEmail        |               `string`               |                          The shopper's email                          |
+| customerLicense      |               `string`               |           The shopper's license plate, entered at checkout            |
+| customerPhone        |               `string`               |                      The shopper's phone number                       |
+| deliveryAddress      |               `object`               |                Saved from the associated user document                |
+| deliveryFee          |               `number`               |                                                                       |
+| deliveryWindow       |            `dddd Do MMMM`            |            The selected date for delivery in string format            |
+| driverEnRoute        |                `bool`                |                                                                       |
+| onHiredDriverNetwork |                `bool`                |          True if this order is on the Unqueue Driver network          |
+| orderNumber          |               `string`               |                                                                       |
+| owner                |               `string`               |                                                                       |
+| ownerId              |               `string`               |                                                                       |
+| packTimeInMinutes    |               `number`               |                                                                       |
+| packed               |                `bool`                |                                                                       |
+| packedAt             |             `Timestamp`              |                        Automatically generated                        |
+| paymentMethod        |               `string`               |                                                                       |
+| pickupTimeDate       |            `bool/object`             |     False if shopper picking up ASAP. Object if it is a pre-order     |
+| requiresPayment      |                `bool`                |                                                                       |
+| source               |             `web \| app`             |                The platform the order was placed from                 |
+| specialNotes         |               `string`               |          Special notes attached to the order by the shopper           |
+| status               |               `string`               |                         Defaults to 'Pending'                         |
+| storeAddress         |               `object`               |              Saved from the associated company document               |
+| storeHours           |               `object`               |              Saved from the associated company document               |
+| storeId              |               `string`               |              Saved from the associated company document               |
+| storeLogo            |               `string`               |          The logo of the company this order was placed from           |
+| storeName            |               `string`               |              Saved from the associated company document               |
+| storePhone           |               `string`               |              Saved from the associated company document               |
+| timeWindow           | `daytimeDelivery \| eveningDelivery` |                                                                       |
+| total                |               `float`                | The total cost of the order including delivery, addons and variations |
+| type                 |               `string`               |                    The pickup method of the order                     |
+| unavailableItems     |                `bool`                |                                                                       |
 
 ## Get an o
 
