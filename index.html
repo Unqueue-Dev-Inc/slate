@@ -323,13 +323,30 @@
               </ul>
           </li>
           <li>
+            <a href="#companies" class="toc-h1 toc-link" data-title="Companies">Companies</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#company-properties" class="toc-h2 toc-link" data-title="Company Properties">Company Properties</a>
+                  </li>
+                  <li>
+                    <a href="#create-company" class="toc-h2 toc-link" data-title="Create Company">Create Company</a>
+                  </li>
+                  <li>
+                    <a href="#get-company" class="toc-h2 toc-link" data-title="Get Company">Get Company</a>
+                  </li>
+                  <li>
+                    <a href="#update-company" class="toc-h2 toc-link" data-title="Update Company">Update Company</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#orders" class="toc-h1 toc-link" data-title="Orders">Orders</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#request" class="toc-h2 toc-link" data-title="Request">Request</a>
                   </li>
                   <li>
-                    <a href="#get-an-o" class="toc-h2 toc-link" data-title="Get an o">Get an o</a>
+                    <a href="#create-an-order" class="toc-h2 toc-link" data-title="Create an order">Create an order</a>
                   </li>
                   <li>
                     <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
@@ -400,7 +417,345 @@
 <p>When using the auth key for requests, the base URL for all requests to the Unqueue API is:</p>
 
 <p><code>https://us-central1-unqueue-staging.cloudfunctions.net</code></p>
-<h1 id='orders'>Orders</h1><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h1 id='companies'>Companies</h1>
+<p>The companies API allows you to create, view, and update individual companies.</p>
+<h2 id='company-properties'>Company Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">acceptsCard</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company accepts LINX/Debit payments</td>
+</tr>
+<tr>
+<td style="text-align: left">acceptsCash</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company accepts cash payments</td>
+</tr>
+<tr>
+<td style="text-align: left">acceptsOrdersAfterHours</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company accepts pre-orders. Shoppers can place orders after opening hours</td>
+</tr>
+<tr>
+<td style="text-align: left">acceptsPayouts</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company accepts online payments</td>
+</tr>
+<tr>
+<td style="text-align: left">acceptsPortableCard</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company accepts portable LINX/Debit payments. This must be true to enable LINX payments on a curbside order</td>
+</tr>
+<tr>
+<td style="text-align: left">active</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company can accept orders</td>
+</tr>
+<tr>
+<td style="text-align: left">address</td>
+<td style="text-align: center">The address object of the company</td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">categories</td>
+<td style="text-align: center"><code>string[]</code></td>
+<td style="text-align: center">An array of category Id&#39;s the company belongs to</td>
+</tr>
+<tr>
+<td style="text-align: left">chatEnabled</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">(Legacy) True if the company accepts chat messages from shoppers</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">When the company was first created</td>
+</tr>
+<tr>
+<td style="text-align: left">deliveryFee</td>
+<td style="text-align: center"><code>float</code></td>
+<td style="text-align: center">The cost of deliveries set by the store. Only applicable for stores offering Delivery and not on Unqueue&#39;s driver network</td>
+</tr>
+<tr>
+<td style="text-align: left">deliveryWindows</td>
+<td style="text-align: center"><code>DeliveryWindows[]</code></td>
+<td style="text-align: center">The days and time windows that the company offers delivery</td>
+</tr>
+<tr>
+<td style="text-align: left">description</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">A short description of the company.</td>
+</tr>
+<tr>
+<td style="text-align: left">doesCurbside</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company does Curbside Pickups</td>
+</tr>
+<tr>
+<td style="text-align: left">doesDelivery</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company does Delivery as a pickup method.</td>
+</tr>
+<tr>
+<td style="text-align: left">doesWalkin</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company does in store pickups</td>
+</tr>
+<tr>
+<td style="text-align: left">email</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The email address of the company</td>
+</tr>
+<tr>
+<td style="text-align: left">emailVerified</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company&#39;s email address is verified.</td>
+</tr>
+<tr>
+<td style="text-align: left">expoToken</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The push notification token of the company.</td>
+</tr>
+<tr>
+<td style="text-align: left">handlesCloserDeliveries</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">(Legacy).</td>
+</tr>
+<tr>
+<td style="text-align: left">hasCategories</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company has at least 1 category with products.</td>
+</tr>
+<tr>
+<td style="text-align: left">headerImage</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The URL of the company&#39;s header image</td>
+</tr>
+<tr>
+<td style="text-align: left">headerThumb</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The URL of an optimized version of the company&#39;s header image</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The ID of the company in the DB.</td>
+</tr>
+<tr>
+<td style="text-align: left">lastOpened</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The last time the business app was opened by the Company</td>
+</tr>
+<tr>
+<td style="text-align: left">lastStep</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">logo</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The URL of the company&#39;s logo.</td>
+</tr>
+<tr>
+<td style="text-align: left">logoOtherThumb</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">logoThumb100</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">logoThumb300</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">logoThumb640</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">masterVerified</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company account is enabled by Unqueue admin.</td>
+</tr>
+<tr>
+<td style="text-align: left">maxDeliveryTime</td>
+<td style="text-align: center"><code>string (eg 60mins)</code></td>
+<td style="text-align: center">A string representation of how far a business is willing to deliver. Only applies if not on Unqueue Delivery</td>
+</tr>
+<tr>
+<td style="text-align: left">minForDelivery</td>
+<td style="text-align: center"><code>float</code></td>
+<td style="text-align: center">The minimum that a shopper must spend to qualify for delivery. Only applies if not on Unqueue Delivery</td>
+</tr>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The name of the company</td>
+</tr>
+<tr>
+<td style="text-align: left">numRatings</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The number of ratings received by the company</td>
+</tr>
+<tr>
+<td style="text-align: left">onDriverNetwork</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if on Unqueue&#39;s On Demand Delivery Network</td>
+</tr>
+<tr>
+<td style="text-align: left">onHiredDriverNetwork</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if on Unqueue&#39;s Pre-order Delivery Network</td>
+</tr>
+<tr>
+<td style="text-align: left">onSaleCount</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The number of items to store has on sale</td>
+</tr>
+<tr>
+<td style="text-align: left">openingDays</td>
+<td style="text-align: center"><code>OpeningDays[]</code></td>
+<td style="text-align: center">The days and times that the company is open</td>
+</tr>
+<tr>
+<td style="text-align: left">ownerFirstName</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The first name of the person running the company account.</td>
+</tr>
+<tr>
+<td style="text-align: left">ownerLastName</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The last name of the person running the company account.</td>
+</tr>
+<tr>
+<td style="text-align: left">packingTime</td>
+<td style="text-align: center">(Legacy).</td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">phone</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The phone number of the company</td>
+</tr>
+<tr>
+<td style="text-align: left">photoId</td>
+<td style="text-align: center"><code>strinng</code></td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">rating</td>
+<td style="text-align: center"><code>float</code></td>
+<td style="text-align: center">The company&#39;s average rating</td>
+</tr>
+<tr>
+<td style="text-align: left">storeOn</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the store should be visible to shoppers</td>
+</tr>
+<tr>
+<td style="text-align: left">storeOnFlagged</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if Unqueue has been alerted that this store has turned on</td>
+</tr>
+<tr>
+<td style="text-align: left">storeProductsView</td>
+<td style="text-align: center"><code>gallery or list</code></td>
+<td style="text-align: center">Whether to display the company&#39;s products in a list or gallery view</td>
+</tr>
+<tr>
+<td style="text-align: left">tags</td>
+<td style="text-align: center"><code>string[]</code></td>
+<td style="text-align: center">(Legacy)</td>
+</tr>
+<tr>
+<td style="text-align: left">uniqueUsername</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">unreadCompanyMessages</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">unreadMessages</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">views</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The number of time the company was viewed</td>
+</tr>
+</tbody></table>
+<h2 id='create-company'>Create Company</h2><h2 id='get-company'>Get Company</h2>
+<p>Retrieve details about a company.</p>
+<h3 id='callable-function-name'>Callable Function Name</h3>
+<p><code>getCompany</code></p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /getCompany</code></p>
+<h3 id='body'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the company to retrieve</td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"acceptsCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsCash"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsOrdersAfterHours"</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsPayouts"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsPortableCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Street name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"buildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">62</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"categoryId"</span><span class="p">,</span><span class="w"> </span><span class="s2">"categoryId2"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"chatEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deliveryFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deliveryWindows"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nl">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some store description"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"doesCurbside"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"doesDelivery"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='update-company'>Update Company</h2><h1 id='orders'>Orders</h1><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"cart"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -656,7 +1011,7 @@
 <td style="text-align: center"></td>
 </tr>
 </tbody></table>
-<h2 id='get-an-o'>Get an o</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id='create-an-order'>Create an order</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
 <span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
@@ -692,7 +1047,9 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='callable-function-name-2'>Callable Function Name</h3>
+<p><code>createOrder</code></p>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET http://example.com/api/kittens</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -746,7 +1103,7 @@ Remember — a happy kitten is an authenticated kitten!
 <p>This endpoint retrieves a specific kitten.</p>
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -785,7 +1142,7 @@ Remember — a happy kitten is an authenticated kitten!
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
