@@ -138,6 +138,28 @@ The companies API allows you to create, view, and update individual companies.
 
 ## Create Company
 
+Create a new company.
+
+### Callable Function Name
+
+`createCompany`
+
+### HTTP Request
+
+`POST /createCompany`
+
+### Body
+
+| Parameter | Description                     |
+| --------- | ------------------------------- |
+| id        | The ID of the company to update |
+
+### Response
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
 ## Get Company
 
 Retrieve details about a company.
@@ -200,80 +222,43 @@ Retrieve details about a company.
 }
 ```
 
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
 ## Update Company
+
+Update a company with new details.
+
+### Callable Function Name
+
+`updateCompany`
+
+### HTTP Request
+
+`POST /updateCompany`
+
+### Body
+
+| Parameter | Description                     |
+| --------- | ------------------------------- |
+| id        | The ID of the company to update |
+
+### Response
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
 
 # Orders
 
-````json
-{
-    "data": {
-        "order": {
-            "cart": [
-                {
-                    "addonsPrice": 0,
-                    "categoryId": "someId",
-                    "count": 1,
-                    "id": "someproductId",
-                    "title": "product 1",
-                    "note": "some note",
-                    "price": 659.99
-                },
-            ],
-            "carDetails": "Dark Blue Mazda",
-            "cashAmount": 20,
-            "customerLicense": "PDC9543",
-            "deliveryAddress": {
-                "address": "Some address",
-                "streetName": "Some sddress",
-                "location": {
-                    "latitude": 12.123,
-                    "longitude": -61
-                }
-            },
-            "paymentMethod": "Cash",
-            "source": "web",
-            "specialNotes": "Some special notes",
-            "type": "Walkin",
-            "total": 100
-        },
-        "shopperData": {
-            "id": "PsoMpLhC7pTUXmIakdtreaZBWus1",
-            "name": "Cyan Sylvester",
-            "email": "johndoe@gmail.com",
-            "phone": "+18687188625"
-        },
-        "store": {
-            "id": "FBdbIxss6IT9TmiaUvnIAo17jLe2",
-            "name": "Sunset Views",
-            "address": {
-                "address": "Some address",
-                "streetName": "Some sddress",
-                "location": {
-                    "latitude": 10.66131356208752,
-                    "longitude": -61.52237425545026
-                }
-            },
-            "phone": "+18687188625",
-            "logo": "https://firebasestorage.googleapis.com/v0/b/unqueue-staging.appspot.com/o/logos%2FFBdbIxss6IT9TmiaUvnIAo17jLe2%2Flogo.png?alt=media&token=f818be77-694d-482e-b963-8933eb2c6034",
-            "openingDays": [
-                {
-                "closingTime": "July 7, 1995 at 8:00:00 PM UTC-4",
-                "day": "Sunday",
-                "label": "Su",
-                "open": true,
-                "openingTime": "July 7, 1995 at 7:00:00 AM UTC-4"
-            }
-            ]
-        }
-    }
-}
-```
+The orders API allows you to create, view, update, and delete individual orders.
 
-### Request
+## Order Properties
 
-
-| Prop                 |                 Type                 |                              Description                              |
+| Attribute            |                 Type                 |                              Description                              |
 | :------------------- | :----------------------------------: | :-------------------------------------------------------------------: |
+| id                   |               `string`               |                   Unique identifier for the order.                    |
 | accepted             |                `bool`                |                 Whether or not the order was accepted                 |
 | cancelled            |                `bool`                |                Whether or not the order was cancelled                 |
 | carDetails           |               `string`               |   Description of the shopper's car, optionally entered at checkout    |
@@ -312,56 +297,13 @@ Retrieve details about a company.
 | type                 |               `string`               |                    The pickup method of the order                     |
 | unavailableItems     |                `bool`                |                                                                       |
 
-## Create an order
+## Create Order
 
-```ruby
-require 'kittn'
+Create a new draft order.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-````
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require("kittn");
-
-let api = kittn.authorize("meowmeowmeow");
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
+<aside class="notice">
+    Draft orders must be completed in order to create an actual Order. Use the id returned from createOrder to pass to completeDraftOrder when completing the order.
+</aside>
 
 ### Callable Function Name
 
@@ -369,119 +311,171 @@ This endpoint retrieves all kittens.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST /createOrder`
 
-### Query Parameters
+### Body
 
-| Parameter    | Default | Description                                                                      |
-| ------------ | ------- | -------------------------------------------------------------------------------- |
-| include_cats | false   | If set to true, the result will also include cats.                               |
-| available    | true    | If set to false, the result will include kittens that have already been adopted. |
+| Parameter | Description                     |
+| --------- | ------------------------------- |
+| id        | The ID of the company to update |
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require("kittn");
-
-let api = kittn.authorize("meowmeowmeow");
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+### Response
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": {
+    "order": {
+      "cart": [
+        {
+          "addonsPrice": 0,
+          "categoryId": "someId",
+          "count": 1,
+          "id": "someproductId",
+          "title": "product 1",
+          "note": "some note",
+          "price": 659.99
+        }
+      ],
+      "carDetails": "Dark Blue Mazda",
+      "cashAmount": 20,
+      "customerLicense": "PDC9543",
+      "deliveryAddress": {
+        "address": "Some address",
+        "streetName": "Some sddress",
+        "location": {
+          "latitude": 12.123,
+          "longitude": -61
+        }
+      },
+      "paymentMethod": "Cash",
+      "source": "web",
+      "specialNotes": "Some special notes",
+      "type": "Walkin",
+      "total": 100
+    },
+    "shopperData": {
+      "id": "PsoMpLhC7pTUXmIakdtreaZBWus1",
+      "name": "Cyan Sylvester",
+      "email": "johndoe@gmail.com",
+      "phone": "+18687188625"
+    },
+    "store": {
+      "id": "FBdbIxss6IT9TmiaUvnIAo17jLe2",
+      "name": "Sunset Views",
+      "address": {
+        "address": "Some address",
+        "streetName": "Some sddress",
+        "location": {
+          "latitude": 10.66131356208752,
+          "longitude": -61.52237425545026
+        }
+      },
+      "phone": "+18687188625",
+      "logo": "https://firebasestorage.googleapis.com/v0/b/unqueue-staging.appspot.com/o/logos%2FFBdbIxss6IT9TmiaUvnIAo17jLe2%2Flogo.png?alt=media&token=f818be77-694d-482e-b963-8933eb2c6034",
+      "openingDays": [
+        {
+          "closingTime": "July 7, 1995 at 8:00:00 PM UTC-4",
+          "day": "Sunday",
+          "label": "Su",
+          "open": true,
+          "openingTime": "July 7, 1995 at 7:00:00 AM UTC-4"
+        }
+      ]
+    }
+  }
 }
 ```
 
-This endpoint retrieves a specific kitten.
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+## Get Order
+
+Retrieve details about an order.
+
+### Callable Function Name
+
+`getOrder`
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`POST /getOrder`
 
-### URL Parameters
+### Body
 
-| Parameter | Description                      |
-| --------- | -------------------------------- |
-| ID        | The ID of the kitten to retrieve |
+| Parameter | Description                     |
+| --------- | ------------------------------- |
+| id        | The ID of the order to retrieve |
 
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require("kittn");
-
-let api = kittn.authorize("meowmeowmeow");
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
+### Response
 
 ```json
 {
-  "id": 2,
-  "deleted": ":("
+  "data": {
+    "acceptsCard": true,
+    "acceptsCash": true,
+    "acceptsOrdersAfterHours": ,
+    "acceptsPayouts": true,
+    "acceptsPortableCard": false,
+    "active": true,
+    "address": {
+      "address": "Street name",
+      "buildingNumber": "24",
+      "location": {
+        "latitude": 62,
+        "longitude": 31
+      }
+    },
+    "categories": ["categoryId", "categoryId2"],
+    "chatEnabled": true,
+    "createdAt": 12,
+    "deliveryFee": 30,
+    "deliveryWindows": [{
+      "foo": "bar"
+    }],
+    "description": "Some store description",
+    "doesCurbside": true,
+    "doesDelivery": true,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+  }
 }
 ```
 
-This endpoint deletes a specific kitten.
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
+## Update Order
+
+Update an order with new details.
+
+### Callable Function Name
+
+`updateOrder`
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`POST /updateOrder`
 
-### URL Parameters
+### Body
 
-| Parameter | Description                    |
-| --------- | ------------------------------ |
-| ID        | The ID of the kitten to delete |
+| Parameter | Description                   |
+| --------- | ----------------------------- |
+| id        | The ID of the order to update |
+
+### Response
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
