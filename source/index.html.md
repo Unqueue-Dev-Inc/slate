@@ -1,15 +1,11 @@
 ---
-title: API Reference
+title: Unqueue API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
   - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
   - errors
@@ -21,33 +17,15 @@ code_clipboard: true
 
 # Introduction
 
-Welcome to the Unqueue API! You can use our API to access Unqueue API endpoints, which can get information on various cats, kittens, and breeds in our database.
+## Overview
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Welcome to the Unqueue API! You can use our API to access Unqueue API endpoints, which can get information on various orders, companies, and more.
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+We have language bindings in JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples (if available) with the tabs in the top right.
 
-# Authentication
+## Authentication
 
 > To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
-```
 
 ```javascript
 const kittn = require("kittn");
@@ -67,9 +45,56 @@ Kittn expects for the API key to be included in all API requests to the server i
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 
-# Kittens
+## Requests
 
-## Get All Kittens
+The base URL for all requests to the Unqueue API is:
+`https://us-central1-unqueue-staging.cloudfunctions.net/`
+
+# Orders
+
+### Request
+
+| Prop                 |      Example       |                 Type                 | Description                                                           |
+| :------------------- | :----------------: | :----------------------------------: | --------------------------------------------------------------------- |
+| accepted             |       false        |                `bool`                | Whether or not the order was accepted                                 |
+| cancelled            |       false        |                `bool`                | Whether or not the order was cancelled                                |
+| carDetails           |    Blue Mazda 3    |               `string`               | Description of the shopper's car, optionally entered at checkout      |
+| cashAmount           |         26         |               `number`               | The amount of cash the shopper is paying with, entered at checkout    |
+| completed            |        true        |                `bool`                |                                                                       |
+| count                |         5          |               `number`               | The number of items in the order                                      |
+| createdAt            |         \*         |             `Timestamp`              | When the order was created.                                           |
+| customerEmail        |   some@email.com   |               `string`               | The shopper's email                                                   |
+| customerLicense      |      PDC9543       |               `string`               | The shopper's license plate, entered at checkout                      |
+| customerPhone        |    +18687551234    |               `string`               | The shopper's phone number                                            |
+| deliveryAddress      |         -          |               `object`               | Saved from the associated user document                               |
+| deliveryFee          |         20         |               `number`               |                                                                       |
+| deliveryWindow       |  Monday 17th May   |            `dddd Do MMMM`            | The selected date for delivery in string format                       |
+| driverEnRoute        |       false        |                `bool`                |                                                                       |
+| onHiredDriverNetwork |        true        |                `bool`                | True if this order is on the Unqueue Driver network                   |
+| orderNumber          |        A070        |               `string`               |                                                                       |
+| owner                |      John Doe      |               `string`               |                                                                       |
+| ownerId              |     userId123      |               `string`               |                                                                       |
+| packTimeInMinutes    |         20         |               `number`               |                                                                       |
+| packed               |        true        |                `bool`                |                                                                       |
+| packedAt             |         \*         |             `Timestamp`              | Automatically generated                                               |
+| paymentMethod        |    Credit Card     |               `string`               |                                                                       |
+| pickupTimeDate       |         -          |            `bool/object`             | False if shopper picking up ASAP. Object if it is a pre-order         |
+| requiresPayment      |         \*         |                `bool`                |                                                                       |
+| source               |        web         |             `web \| app`             | The platform the order was placed from                                |
+| specialNotes         | Some special notes |               `string`               | Special notes attached to the order by the shopper                    |
+| status               |      Pending       |               `string`               | Defaults to 'Pending'                                                 |
+| storeAddress         |         \*         |               `object`               | Saved from the associated company document                            |
+| storeHours           |         \*         |               `object`               | Saved from the associated company document                            |
+| storeId              |     storeId123     |               `string`               | Saved from the associated company document                            |
+| storeLogo            |    someurl.com     |               `string`               | The logo of the company this order was placed from                    |
+| storeName            |  Joe's Sandwiches  |               `string`               | Saved from the associated company document                            |
+| storePhone           |    +18687441234    |               `string`               | Saved from the associated company document                            |
+| timeWindow           |  daytimeDelivery   | `daytimeDelivery \| eveningDelivery` |                                                                       |
+| total                |        124         |               `float`                | The total cost of the order including delivery, addons and variations |
+| type                 |      Curbside      |               `string`               | The pickup method of the order                                        |
+| unavailableItems     |       false        |                `bool`                |                                                                       |
+
+## Get an o
 
 ```ruby
 require 'kittn'
