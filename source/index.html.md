@@ -73,6 +73,135 @@ When using the auth key for requests, the base URL for all requests to the Unque
 
 `https://us-central1-unqueue-staging.cloudfunctions.net`
 
+# Companies
+
+The companies API allows you to create, view, and update individual companies.
+
+## Company Properties
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| acceptsCard             |              `bool`               |                                      True if the company accepts LINX/Debit payments                                      |
+| acceptsCash             |              `bool`               |                                         True if the company accepts cash payments                                         |
+| acceptsOrdersAfterHours |              `bool`               |                   True if the company accepts pre-orders. Shoppers can place orders after opening hours                   |
+| acceptsPayouts          |              `bool`               |                                        True if the company accepts online payments                                        |
+| acceptsPortableCard     |              `bool`               |  True if the company accepts portable LINX/Debit payments. This must be true to enable LINX payments on a curbside order  |
+| active                  |              `bool`               |                                           True if the company can accept orders                                           |
+| address                 | The address object of the company |
+| categories              |            `string[]`             |                                     An array of category Id's the company belongs to                                      |
+| chatEnabled             |              `bool`               |                             (Legacy) True if the company accepts chat messages from shoppers                              |
+| createdAt               |            `Timestamp`            |                                            When the company was first created                                             |
+| deliveryFee             |              `float`              | The cost of deliveries set by the store. Only applicable for stores offering Delivery and not on Unqueue's driver network |
+| deliveryWindows         |        `DeliveryWindows[]`        |                                The days and time windows that the company offers delivery                                 |
+| description             |             `string`              |                                            A short description of the company.                                            |
+| doesCurbside            |              `bool`               |                                         True if the company does Curbside Pickups                                         |
+| doesDelivery            |              `bool`               |                                   True if the company does Delivery as a pickup method.                                   |
+| doesWalkin              |              `bool`               |                                         True if the company does in store pickups                                         |
+| email                   |             `string`              |                                             The email address of the company                                              |
+| emailVerified           |              `bool`               |                                     True if the company's email address is verified.                                      |
+| expoToken               |             `string`              |                                        The push notification token of the company.                                        |
+| handlesCloserDeliveries |              `bool`               |                                                         (Legacy).                                                         |
+| hasCategories           |              `bool`               |                                True if the company has at least 1 category with products.                                 |
+| headerImage             |             `string`              |                                           The URL of the company's header image                                           |
+| headerThumb             |             `string`              |                               The URL of an optimized version of the company's header image                               |
+| id                      |             `string`              |                                             The ID of the company in the DB.                                              |
+| lastOpened              |            `Timestamp`            |                                 The last time the business app was opened by the Company                                  |
+| lastStep                |             `string`              |                                                                                                                           |
+| logo                    |             `string`              |                                              The URL of the company's logo.                                               |
+| logoOtherThumb          |             `string`              |                                                                                                                           |
+| logoThumb100            |             `string`              |                                                                                                                           |
+| logoThumb300            |             `string`              |                                                                                                                           |
+| logoThumb640            |             `string`              |                                                                                                                           |
+| masterVerified          |              `bool`               |                                 True if the company account is enabled by Unqueue admin.                                  |
+| maxDeliveryTime         |       `string (eg 60mins)`        |       A string representation of how far a business is willing to deliver. Only applies if not on Unqueue Delivery        |
+| minForDelivery          |              `float`              |          The minimum that a shopper must spend to qualify for delivery. Only applies if not on Unqueue Delivery           |
+| name                    |             `string`              |                                                  The name of the company                                                  |
+| numRatings              |             `number`              |                                       The number of ratings received by the company                                       |
+| onDriverNetwork         |              `bool`               |                                      True if on Unqueue's On Demand Delivery Network                                      |
+| onHiredDriverNetwork    |              `bool`               |                                      True if on Unqueue's Pre-order Delivery Network                                      |
+| onSaleCount             |             `number`              |                                         The number of items to store has on sale                                          |
+| openingDays             |          `OpeningDays[]`          |                                        The days and times that the company is open                                        |
+| ownerFirstName          |             `string`              |                                 The first name of the person running the company account.                                 |
+| ownerLastName           |             `string`              |                                 The last name of the person running the company account.                                  |
+| packingTime             |             (Legacy).             |
+| phone                   |             `string`              |                                              The phone number of the company                                              |
+| photoId                 |             `strinng`             |                                                                                                                           |
+| rating                  |              `float`              |                                               The company's average rating                                                |
+| storeOn                 |              `bool`               |                                      True if the store should be visible to shoppers                                      |
+| storeOnFlagged          |              `bool`               |                              True if Unqueue has been alerted that this store has turned on                               |
+| storeProductsView       |         `gallery or list`         |                            Whether to display the company's products in a list or gallery view                            |
+| tags                    |            `string[]`             |                                                         (Legacy)                                                          |
+| uniqueUsername          |             `string`              |                                                                                                                           |
+| unreadCompanyMessages   |             `number`              |                                                                                                                           |
+| unreadMessages          |             `number`              |                                                                                                                           |
+| views                   |             `number`              |                                         The number of time the company was viewed                                         |
+
+## Create Company
+
+## Get Company
+
+Retrieve details about a company.
+
+### Callable Function Name
+
+`getCompany`
+
+### HTTP Request
+
+`POST /getCompany`
+
+### Body
+
+| Parameter | Description                       |
+| --------- | --------------------------------- |
+| id        | The ID of the company to retrieve |
+
+### Response
+
+```json
+{
+  "data": {
+    "acceptsCard": true,
+    "acceptsCash": true,
+    "acceptsOrdersAfterHours": ,
+    "acceptsPayouts": true,
+    "acceptsPortableCard": false,
+    "active": true,
+    "address": {
+      "address": "Street name",
+      "buildingNumber": "24",
+      "location": {
+        "latitude": 62,
+        "longitude": 31
+      }
+    },
+    "categories": ["categoryId", "categoryId2"],
+    "chatEnabled": true,
+    "createdAt": 12,
+    "deliveryFee": 30,
+    "deliveryWindows": [{
+      "foo": "bar"
+    }],
+    "description": "Some store description",
+    "doesCurbside": true,
+    "doesDelivery": true,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+  }
+}
+```
+
+## Update Company
+
 # Orders
 
 ````json
@@ -183,7 +312,7 @@ When using the auth key for requests, the base URL for all requests to the Unque
 | type                 |               `string`               |                    The pickup method of the order                     |
 | unavailableItems     |                `bool`                |                                                                       |
 
-## Get an o
+## Create an order
 
 ```ruby
 require 'kittn'
@@ -233,6 +362,10 @@ let kittens = api.kittens.get();
 ```
 
 This endpoint retrieves all kittens.
+
+### Callable Function Name
+
+`createOrder`
 
 ### HTTP Request
 
