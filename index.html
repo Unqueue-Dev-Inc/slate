@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Unqueue API Reference</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -291,7 +291,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -301,9 +301,6 @@
     <div class="toc-wrapper">
       <img src="images/logo-1e815a84.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
               <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
@@ -313,15 +310,26 @@
       <ul id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
+                  </li>
+                  <li>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#requests" class="toc-h2 toc-link" data-title="Requests">Requests</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#orders" class="toc-h1 toc-link" data-title="Orders">Orders</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#request" class="toc-h2 toc-link" data-title="Request">Request</a>
+                  </li>
+                  <li>
+                    <a href="#get-an-o" class="toc-h2 toc-link" data-title="Get an o">Get an o</a>
                   </li>
                   <li>
                     <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
@@ -337,32 +345,20 @@
       </ul>
         <ul class="toc-footer">
             <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Unqueue API! You can use our API to access Unqueue API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id='introduction'>Introduction</h1><h2 id='overview'>Overview</h2>
+<p>Welcome to the Unqueue API! You can use our API to access Unqueue API endpoints, which can get information on various orders, companies, and more.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
+<p>We have language bindings in JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples (if available) with the tabs in the top right.</p>
+<h2 id='authentication'>Authentication</h2>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">kittn</span><span class="dl">"</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">kittn</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">"</span><span class="s2">meowmeowmeow</span><span class="dl">"</span><span class="p">);</span>
 </code></pre></div>
@@ -379,7 +375,242 @@ curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id='requests'>Requests</h2>
+<p>The base URL for all requests to the Unqueue API is:
+<code>https://us-central1-unqueue-staging.cloudfunctions.net/</code></p>
+<h1 id='orders'>Orders</h1><h3 id='request'>Request</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">Prop</th>
+<th style="text-align: center">Example</th>
+<th style="text-align: center">Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">accepted</td>
+<td style="text-align: center">false</td>
+<td style="text-align: center"><code>bool</code></td>
+<td>Whether or not the order was accepted</td>
+</tr>
+<tr>
+<td style="text-align: left">cancelled</td>
+<td style="text-align: center">false</td>
+<td style="text-align: center"><code>bool</code></td>
+<td>Whether or not the order was cancelled</td>
+</tr>
+<tr>
+<td style="text-align: left">carDetails</td>
+<td style="text-align: center">Blue Mazda 3</td>
+<td style="text-align: center"><code>string</code></td>
+<td>Description of the shopper&#39;s car, optionally entered at checkout</td>
+</tr>
+<tr>
+<td style="text-align: left">cashAmount</td>
+<td style="text-align: center">26</td>
+<td style="text-align: center"><code>number</code></td>
+<td>The amount of cash the shopper is paying with, entered at checkout</td>
+</tr>
+<tr>
+<td style="text-align: left">completed</td>
+<td style="text-align: center">true</td>
+<td style="text-align: center"><code>bool</code></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left">count</td>
+<td style="text-align: center">5</td>
+<td style="text-align: center"><code>number</code></td>
+<td>The number of items in the order</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: center">*</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td>When the order was created.</td>
+</tr>
+<tr>
+<td style="text-align: left">customerEmail</td>
+<td style="text-align: center">some@email.com</td>
+<td style="text-align: center"><code>string</code></td>
+<td>The shopper&#39;s email</td>
+</tr>
+<tr>
+<td style="text-align: left">customerLicense</td>
+<td style="text-align: center">PDC9543</td>
+<td style="text-align: center"><code>string</code></td>
+<td>The shopper&#39;s license plate, entered at checkout</td>
+</tr>
+<tr>
+<td style="text-align: left">customerPhone</td>
+<td style="text-align: center">+18687551234</td>
+<td style="text-align: center"><code>string</code></td>
+<td>The shopper&#39;s phone number</td>
+</tr>
+<tr>
+<td style="text-align: left">deliveryAddress</td>
+<td style="text-align: center">-</td>
+<td style="text-align: center"><code>object</code></td>
+<td>Saved from the associated user document</td>
+</tr>
+<tr>
+<td style="text-align: left">deliveryFee</td>
+<td style="text-align: center">20</td>
+<td style="text-align: center"><code>number</code></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left">deliveryWindow</td>
+<td style="text-align: center">Monday 17th May</td>
+<td style="text-align: center"><code>dddd Do MMMM</code></td>
+<td>The selected date for delivery in string format</td>
+</tr>
+<tr>
+<td style="text-align: left">driverEnRoute</td>
+<td style="text-align: center">false</td>
+<td style="text-align: center"><code>bool</code></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left">onHiredDriverNetwork</td>
+<td style="text-align: center">true</td>
+<td style="text-align: center"><code>bool</code></td>
+<td>True if this order is on the Unqueue Driver network</td>
+</tr>
+<tr>
+<td style="text-align: left">orderNumber</td>
+<td style="text-align: center">A070</td>
+<td style="text-align: center"><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left">owner</td>
+<td style="text-align: center">John Doe</td>
+<td style="text-align: center"><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left">ownerId</td>
+<td style="text-align: center">userId123</td>
+<td style="text-align: center"><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left">packTimeInMinutes</td>
+<td style="text-align: center">20</td>
+<td style="text-align: center"><code>number</code></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left">packed</td>
+<td style="text-align: center">true</td>
+<td style="text-align: center"><code>bool</code></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left">packedAt</td>
+<td style="text-align: center">*</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td>Automatically generated</td>
+</tr>
+<tr>
+<td style="text-align: left">paymentMethod</td>
+<td style="text-align: center">Credit Card</td>
+<td style="text-align: center"><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left">pickupTimeDate</td>
+<td style="text-align: center">-</td>
+<td style="text-align: center"><code>bool/object</code></td>
+<td>False if shopper picking up ASAP. Object if it is a pre-order</td>
+</tr>
+<tr>
+<td style="text-align: left">requiresPayment</td>
+<td style="text-align: center">*</td>
+<td style="text-align: center"><code>bool</code></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left">source</td>
+<td style="text-align: center">web</td>
+<td style="text-align: center">`web \</td>
+<td>app`</td>
+</tr>
+<tr>
+<td style="text-align: left">specialNotes</td>
+<td style="text-align: center">Some special notes</td>
+<td style="text-align: center"><code>string</code></td>
+<td>Special notes attached to the order by the shopper</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: center">Pending</td>
+<td style="text-align: center"><code>string</code></td>
+<td>Defaults to &#39;Pending&#39;</td>
+</tr>
+<tr>
+<td style="text-align: left">storeAddress</td>
+<td style="text-align: center">*</td>
+<td style="text-align: center"><code>object</code></td>
+<td>Saved from the associated company document</td>
+</tr>
+<tr>
+<td style="text-align: left">storeHours</td>
+<td style="text-align: center">*</td>
+<td style="text-align: center"><code>object</code></td>
+<td>Saved from the associated company document</td>
+</tr>
+<tr>
+<td style="text-align: left">storeId</td>
+<td style="text-align: center">storeId123</td>
+<td style="text-align: center"><code>string</code></td>
+<td>Saved from the associated company document</td>
+</tr>
+<tr>
+<td style="text-align: left">storeLogo</td>
+<td style="text-align: center">someurl.com</td>
+<td style="text-align: center"><code>string</code></td>
+<td>The logo of the company this order was placed from</td>
+</tr>
+<tr>
+<td style="text-align: left">storeName</td>
+<td style="text-align: center">Joe&#39;s Sandwiches</td>
+<td style="text-align: center"><code>string</code></td>
+<td>Saved from the associated company document</td>
+</tr>
+<tr>
+<td style="text-align: left">storePhone</td>
+<td style="text-align: center">+18687441234</td>
+<td style="text-align: center"><code>string</code></td>
+<td>Saved from the associated company document</td>
+</tr>
+<tr>
+<td style="text-align: left">timeWindow</td>
+<td style="text-align: center">daytimeDelivery</td>
+<td style="text-align: center">`daytimeDelivery \</td>
+<td>eveningDelivery`</td>
+</tr>
+<tr>
+<td style="text-align: left">total</td>
+<td style="text-align: center">124</td>
+<td style="text-align: center"><code>float</code></td>
+<td>The total cost of the order including delivery, addons and variations</td>
+</tr>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: center">Curbside</td>
+<td style="text-align: center"><code>string</code></td>
+<td>The pickup method of the order</td>
+</tr>
+<tr>
+<td style="text-align: left">unavailableItems</td>
+<td style="text-align: center">false</td>
+<td style="text-align: center"><code>bool</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='get-an-o'>Get an o</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
 <span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
@@ -584,9 +815,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
                 <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
