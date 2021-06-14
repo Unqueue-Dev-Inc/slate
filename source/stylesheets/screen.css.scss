@@ -110,7 +110,7 @@ body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: bold;
 
   // language selector for mobile devices
@@ -241,7 +241,7 @@ body {
     }
 
     li {
-      font-size: 0.8em;
+      font-size: 1em;
       line-height: 1.7;
       text-decoration: none;
     }
@@ -418,7 +418,7 @@ body {
 
   h1 {
     @extend %header-font;
-    font-size: 25px;
+    font-size: 30px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
@@ -436,7 +436,7 @@ body {
 
   h2 {
     @extend %header-font;
-    font-size: 19px;
+    font-size: 24px;
     margin-top: 4em;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
@@ -462,7 +462,7 @@ body {
   h5,
   h6 {
     @extend %header-font;
-    font-size: 15px;
+    font-size: 19px;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
   }
