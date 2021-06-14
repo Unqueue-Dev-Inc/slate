@@ -25,34 +25,123 @@ We have language bindings in JavaScript! You can view code examples in the dark 
 
 ## Authentication
 
-> To authorize, use this code:
+If you are using our API using the Firebase SDK, there is no need to do any authentication as long as you have initialized using Unqueue's credentials.
+
+If you are using our API via HTTP requests, ensure to add the `auth` header to your requests. You can register a new Unqueue auth key <a href='mailto:andel@agyei.design'>here</a>.
+
+> Using Callable Firebase functions:
 
 ```javascript
-const kittn = require("kittn");
-
-let api = kittn.authorize("meowmeowmeow");
+const exampleCallableFunctionCall = async () => {
+  try {
+    const createOrder = firebase.functions().httpsCallable("createOrder");
+    const request = await createOrder({
+      foo: "bar",
+    });
+    console.log(request.data);
+  } catch (err) {
+    console.log(err.message);
+  } finally {
+    setLoading(false);
+  }
+};
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Using the auth header, an axios example
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+```javascript
+const token = "..your token..";
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+axios.post(
+  baseUrl,
+  {
+    //...data
+  },
+  {
+    headers: {
+      auth: token,
+    },
+  }
+);
+```
 
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+> Make sure to replace `token` with your own key.
 
 ## Requests
 
-The base URL for all requests to the Unqueue API is:
-`https://us-central1-unqueue-staging.cloudfunctions.net/`
+When using the auth key for requests, the base URL for all requests to the Unqueue API is:
+
+`https://us-central1-unqueue-staging.cloudfunctions.net`
 
 # Orders
 
+````json
+{
+    "data": {
+        "order": {
+            "cart": [
+                {
+                    "addonsPrice": 0,
+                    "categoryId": "someId",
+                    "count": 1,
+                    "id": "someproductId",
+                    "title": "product 1",
+                    "note": "some note",
+                    "price": 659.99
+                },
+            ],
+            "carDetails": "Dark Blue Mazda",
+            "cashAmount": 20,
+            "customerLicense": "PDC9543",
+            "deliveryAddress": {
+                "address": "Some address",
+                "streetName": "Some sddress",
+                "location": {
+                    "latitude": 12.123,
+                    "longitude": -61
+                }
+            },
+            "paymentMethod": "Cash",
+            "source": "web",
+            "specialNotes": "Some special notes",
+            "type": "Walkin",
+            "total": 100
+        },
+        "shopperData": {
+            "id": "PsoMpLhC7pTUXmIakdtreaZBWus1",
+            "name": "Cyan Sylvester",
+            "email": "johndoe@gmail.com",
+            "phone": "+18687188625"
+        },
+        "store": {
+            "id": "FBdbIxss6IT9TmiaUvnIAo17jLe2",
+            "name": "Sunset Views",
+            "address": {
+                "address": "Some address",
+                "streetName": "Some sddress",
+                "location": {
+                    "latitude": 10.66131356208752,
+                    "longitude": -61.52237425545026
+                }
+            },
+            "phone": "+18687188625",
+            "logo": "https://firebasestorage.googleapis.com/v0/b/unqueue-staging.appspot.com/o/logos%2FFBdbIxss6IT9TmiaUvnIAo17jLe2%2Flogo.png?alt=media&token=f818be77-694d-482e-b963-8933eb2c6034",
+            "openingDays": [
+                {
+                "closingTime": "July 7, 1995 at 8:00:00 PM UTC-4",
+                "day": "Sunday",
+                "label": "Su",
+                "open": true,
+                "openingTime": "July 7, 1995 at 7:00:00 AM UTC-4"
+            }
+            ]
+        }
+    }
+}
+```
+
 ### Request
+
 
 | Prop                 |                 Type                 |                              Description                              |
 | :------------------- | :----------------------------------: | :-------------------------------------------------------------------: |
@@ -101,7 +190,7 @@ require 'kittn'
 
 api = Kittn::APIClient.authorize!('meowmeowmeow')
 api.kittens.get
-```
+````
 
 ```python
 import kittn
