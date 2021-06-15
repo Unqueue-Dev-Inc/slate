@@ -479,3 +479,563 @@ Update an order with new details.
 <!-- ////////////////////////////////////////////////////////////////////////////////
 // END SECTION
 //////////////////////////////////////////////////////////////////////////////// -->
+
+# Products
+
+The products API allows you to create, view, and update individual products.
+
+## Product Properties
+
+| Attribute                      |     Type      |                                                       Description                                                        |
+| :----------------------------- | :-----------: | :----------------------------------------------------------------------------------------------------------------------: |
+| id                             |   `string`    |                                                  The ID of the product                                                   |
+| categoryAvailableDays          |    `Array`    |                               The available days object attached to the product's category                               |
+| categoryId                     |   `string`    |                                          The categoryId the product belongs to                                           |
+| categoryName                   |   `string`    |                                           The category the product belongs to                                            |
+| categoryVisible                |    `bool`     |                                 True if the category this product belongs to is visible                                  |
+| companyAcceptsCard             |    `bool`     |                                     True if the company accepts LINX/Debit payments                                      |
+| companyAcceptsOrdersAfterHours |    `bool`     |                  True if the company accepts pre-orders. Shoppers can place orders after opening hours                   |
+| companyAcceptsPayouts          |    `bool`     |                                       True if the company accepts online payments                                        |
+| companyAcceptsPortableCard     |    `bool`     | True if the company accepts portable LINX/Debit payments. This must be true to enable linx payments on a curbside order  |
+| companyCategories              |  `string[]`   |                                     An array of category Id's the company belongs to                                     |
+| companyDeliveryFee             |   `number`    | The delivery cost set by the store. **Only** applicable for stores offering Delivery and not on Unqueue's driver network |
+| companyDoesCurbside            |    `bool`     |                                        True if the company does Curbside Pickups                                         |
+| companyDoesDelivery            |    `bool`     |                                  True if the company does Delivery as a pickup method.                                   |
+| companyDoesWalkin              |    `bool`     |                                        True if the company does in store pickups                                         |
+| companyId                      |   `string`    |                                          The company Id the product belongs to                                           |
+| companyLogo                    |   `string`    |                                            A URL pointing to the company logo                                            |
+| companyName                    |   `string`    |                                      The name of the company the product belongs to                                      |
+| companyOnHiredDriverNetwork    |    `bool`     |                              True if the company is on Unqueue's Pre-order Delivery Network                              |
+| companyVisible                 |    `bool`     |                                         True if the store is visible to shoppers                                         |
+| createdAt                      |  `Timestamp`  |                                                                                                                          |
+| description                    |   `string`    |                                          Short text description of the product                                           |
+| hasAddons                      |    `bool`     |                                             True if the product has add-ons                                              |
+| hasVariations                  |    `bool`     |                                            True if the product has variations                                            |
+| image                          |   `string`    |                                         URL of the featured/first product image                                          |
+| inStock                        |    `bool`     |                                             The stock status of the product                                              |
+| order                          |   `number`    |                                           The position of the product in list                                            |
+| packingTime                    | `packingTime` |                               A representation of how long it takes to prepare the product                               |
+| price                          |    `float`    |                                                                                                                          |
+| purchases                      |   `number`    |                                     The number of times the product has been bought                                      |
+| salePrice                      |   `number`    |                                              The sale price of the product                                               |
+| stockCount                     |   `number`    |                               The quantity of products. `null` if not tracking stock count                               |
+| title                          |   `string`    |                                                 The name of the category                                                 |
+| trackStock                     |    `bool`     |                        True if tracking inventory. Orders of this product will reduce stock count                        |
+| views                          |   `number`    |                                     The number of times the product has been viewed                                      |
+| visible                        |    `bool`     |                                       True if the product should be shown to users                                       |
+
+## Create Product
+
+Create a new product.
+
+### Callable Function Name
+
+`createProduct`
+
+### HTTP Request
+
+`POST /createProduct`
+
+### Body
+
+| Parameter | Description                     |
+| --------- | ------------------------------- |
+| id        | The ID of the product to create |
+
+### Response
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
+## Get Product
+
+Retrieve details about a product.
+
+### Callable Function Name
+
+`getProduct`
+
+### HTTP Request
+
+`POST /getProduct`
+
+### Body
+
+| Parameter | Description                       |
+| --------- | --------------------------------- |
+| id        | The ID of the product to retrieve |
+
+### Response
+
+```json
+{
+  "data": {
+    "acceptsCard": true,
+    "acceptsCash": true,
+    "acceptsOrdersAfterHours": ,
+    "acceptsPayouts": true,
+    "acceptsPortableCard": false,
+    "active": true,
+    "address": {
+      "address": "Street name",
+      "buildingNumber": "24",
+      "location": {
+        "latitude": 62,
+        "longitude": 31
+      }
+    },
+    "categories": ["categoryId", "categoryId2"],
+    "chatEnabled": true,
+    "createdAt": 12,
+    "deliveryFee": 30,
+    "deliveryWindows": [{
+      "foo": "bar"
+    }],
+    "description": "Some store description",
+    "doesCurbside": true,
+    "doesDelivery": true,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+  }
+}
+```
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
+## Update Product
+
+Update a product with new details.
+
+### Callable Function Name
+
+`updateProduct`
+
+### HTTP Request
+
+`POST /updateProduct`
+
+### Body
+
+| Parameter | Description                     |
+| --------- | ------------------------------- |
+| id        | The ID of the product to update |
+
+### Response
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
+# Driver Trips
+
+The driver-trips API allows you to create, view, and update individual trips.
+
+## Driver Trip Properties
+
+| Attribute           |                                         Type                                          |                     Description                      |
+| :------------------ | :-----------------------------------------------------------------------------------: | :--------------------------------------------------: |
+| cashToCollect       |                                        `float`                                        | The total cash the driver has to collect on the trip |
+| completed           |                                        `bool`                                         |              True if the trip has ended              |
+| count               |                                       `number`                                        |           The count of orders in this trip           |
+| createdAt           |                                      `Timestamp`                                      |              When the trip was created               |
+| driver              |                                       `Driver`                                        |              When the trip was created               |
+| driverId            |                                       `string`                                        |      The ID of the driver assigned to the trip       |
+| driverTripEarnings  |                                       `number`                                        | The amount of money a driver will make on this trip  |
+| orders              |                                       `Order[]`                                       |                          -                           |
+| status              | <code>pending &#124; assigned &#124; ongoing &#124; completed &#124; cancelled</code> |                The status of the trip                |
+| tripDuration        |                                       `number`                                        |       The total length of the trip in minutes        |
+| tripEarnings        |                                        `float`                                        |                          -                           |
+| tripLength          |                            <code>short &#124; long</code>                             |         A representation of the trip length          |
+| tripNumber          |                                       `string`                                        |      A 5-digit number for referencing the trip       |
+| unqueueTripEarnings |                                       `string`                                        |  The amount of money Unqueue will make on this trip  |
+
+## Create Driver Trip
+
+Create a new driver-trip.
+
+### Callable Function Name
+
+`createDriverTrip`
+
+### HTTP Request
+
+`POST /createDriverTrip`
+
+### Response
+
+```json
+{
+  "success": true,
+  "tripId": "abc123"
+}
+```
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
+## Get Driver Trip
+
+Retrieve details about a driver-trip.
+
+### Callable Function Name
+
+`getDriverTrip`
+
+### HTTP Request
+
+`POST /getDriverTrip`
+
+### Body
+
+| Parameter | Description                           |
+| --------- | ------------------------------------- |
+| id        | The ID of the driver-trip to retrieve |
+
+### Response
+
+```json
+{
+  "data": {
+    "acceptsCard": true,
+    "acceptsCash": true,
+    "acceptsOrdersAfterHours": ,
+    "acceptsPayouts": true,
+    "acceptsPortableCard": false,
+    "active": true,
+    "address": {
+      "address": "Street name",
+      "buildingNumber": "24",
+      "location": {
+        "latitude": 62,
+        "longitude": 31
+      }
+    },
+    "categories": ["categoryId", "categoryId2"],
+    "chatEnabled": true,
+    "createdAt": 12,
+    "deliveryFee": 30,
+    "deliveryWindows": [{
+      "foo": "bar"
+    }],
+    "description": "Some store description",
+    "doesCurbside": true,
+    "doesDelivery": true,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+  }
+}
+```
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
+## Update Product
+
+Update a product with new details.
+
+### Callable Function Name
+
+`updateProduct`
+
+### HTTP Request
+
+`POST /updateProduct`
+
+### Body
+
+| Parameter | Description                     |
+| --------- | ------------------------------- |
+| id        | The ID of the product to update |
+
+### Response
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
+# Discount Codes
+
+The discount-codes API allows you to create, view, and update individual discount-codes.
+
+## Discount Code Properties
+
+| Attribute |                 Type                 |                                    Description                                     |
+| :-------- | :----------------------------------: | :--------------------------------------------------------------------------------: |
+| active    |                `bool`                |                        True if the code is enabled for use                         |
+| code      |               `string`               |                      The discount code that users will enter                       |
+| companyId |               `string`               |                     The companyId the discount code belongs to                     |
+| createdAt |             `Timestamp`              |                         When the discount code was created                         |
+| id        |               `string`               |                         The unique ID of the discount code                         |
+| name      |               `string`               |                      A description of the purpose of the code                      |
+| type      | <code>percentage &#124; value</code> | The method of applying the discount, varies between a percentage and a fixed value |
+| updatedAt |             `Timestamp`              |                           When the code was last updated                           |
+| uses      |               `number`               |                     The number of times the code has been used                     |
+| value     |               `number`               |                       The actual value of the discount code                        |
+
+## Create Discount Code
+
+Create a new discount cod.
+
+### Callable Function Name
+
+`createDriverTrip`
+
+### HTTP Request
+
+`POST /createDriverTrip`
+
+### Response
+
+```json
+{
+  "success": true,
+  "tripId": "abc123"
+}
+```
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
+## Get Discount Code
+
+Retrieve details about a driver-trip.
+
+### Callable Function Name
+
+`getDriverTrip`
+
+### HTTP Request
+
+`POST /getDriverTrip`
+
+### Body
+
+| Parameter | Description                           |
+| --------- | ------------------------------------- |
+| id        | The ID of the driver-trip to retrieve |
+
+### Response
+
+```json
+{
+  "data": {
+    "acceptsCard": true,
+    "acceptsCash": true,
+    "acceptsOrdersAfterHours": ,
+    "acceptsPayouts": true,
+    "acceptsPortableCard": false,
+    "active": true,
+    "address": {
+      "address": "Street name",
+      "buildingNumber": "24",
+      "location": {
+        "latitude": 62,
+        "longitude": 31
+      }
+    },
+    "categories": ["categoryId", "categoryId2"],
+    "chatEnabled": true,
+    "createdAt": 12,
+    "deliveryFee": 30,
+    "deliveryWindows": [{
+      "foo": "bar"
+    }],
+    "description": "Some store description",
+    "doesCurbside": true,
+    "doesDelivery": true,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+  }
+}
+```
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
+## Update Discount Code
+
+Update a product with new details.
+
+### Callable Function Name
+
+`updateProduct`
+
+### HTTP Request
+
+`POST /updateProduct`
+
+### Body
+
+| Parameter | Description                     |
+| --------- | ------------------------------- |
+| id        | The ID of the product to update |
+
+### Response
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
+# Product Categories
+
+The product categories API allows you to create, view, and update individual product categories. This is a sub-collection of the `companies` collection.
+
+## Product Category Properties
+
+| Attribute     |    Type     |                Description                 |
+| :------------ | :---------: | :----------------------------------------: |
+| id            |  `string`   |     The unique ID of the discount code     |
+| title         |  `string`   |    True if the code is enabled for use     |
+| isShowing     |   `bool`    |  The discount code that users will enter   |
+| order         |  `number`   | The companyId the discount code belongs to |
+| createdAt     | `Timestamp` |     When the discount code was created     |
+| availableDays |  `Array[]`  |  A description of the purpose of the code  |
+
+## Create Product Category
+
+Create a new product category.
+
+### Callable Function Name
+
+`createProductCategory`
+
+### HTTP Request
+
+`POST /createProductCategory`
+
+### Response
+
+```json
+{
+  "success": true,
+  "tripId": "abc123"
+}
+```
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
+## Get Product Category
+
+Retrieve details about a driver-trip.
+
+### Callable Function Name
+
+`getDriverTrip`
+
+### HTTP Request
+
+`POST /getDriverTrip`
+
+### Body
+
+| Parameter | Description                           |
+| --------- | ------------------------------------- |
+| id        | The ID of the driver-trip to retrieve |
+
+### Response
+
+```json
+{
+  "data": {
+    "acceptsCard": true,
+    "acceptsCash": true,
+    "acceptsOrdersAfterHours": ,
+    "acceptsPayouts": true,
+    "acceptsPortableCard": false,
+    "active": true,
+    "address": {
+      "address": "Street name",
+      "buildingNumber": "24",
+      "location": {
+        "latitude": 62,
+        "longitude": 31
+      }
+    },
+    "categories": ["categoryId", "categoryId2"],
+    "chatEnabled": true,
+    "createdAt": 12,
+    "deliveryFee": 30,
+    "deliveryWindows": [{
+      "foo": "bar"
+    }],
+    "description": "Some store description",
+    "doesCurbside": true,
+    "doesDelivery": true,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+    "": ,
+  }
+}
+```
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
+## Update Product Category
+
+Update a product with new details.
+
+### Callable Function Name
+
+`updateProduct`
+
+### HTTP Request
+
+`POST /updateProduct`
+
+### Body
+
+| Parameter | Description                     |
+| --------- | ------------------------------- |
+| id        | The ID of the product to update |
+
+### Response
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
