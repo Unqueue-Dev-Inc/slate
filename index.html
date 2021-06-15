@@ -357,6 +357,74 @@
               </ul>
           </li>
           <li>
+            <a href="#products" class="toc-h1 toc-link" data-title="Products">Products</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#product-properties" class="toc-h2 toc-link" data-title="Product Properties">Product Properties</a>
+                  </li>
+                  <li>
+                    <a href="#create-product" class="toc-h2 toc-link" data-title="Create Product">Create Product</a>
+                  </li>
+                  <li>
+                    <a href="#get-product" class="toc-h2 toc-link" data-title="Get Product">Get Product</a>
+                  </li>
+                  <li>
+                    <a href="#update-product" class="toc-h2 toc-link" data-title="Update Product">Update Product</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#driver-trips" class="toc-h1 toc-link" data-title="Driver Trips">Driver Trips</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#driver-trip-properties" class="toc-h2 toc-link" data-title="Driver Trip Properties">Driver Trip Properties</a>
+                  </li>
+                  <li>
+                    <a href="#create-driver-trip" class="toc-h2 toc-link" data-title="Create Driver Trip">Create Driver Trip</a>
+                  </li>
+                  <li>
+                    <a href="#get-driver-trip" class="toc-h2 toc-link" data-title="Get Driver Trip">Get Driver Trip</a>
+                  </li>
+                  <li>
+                    <a href="#update-product-2" class="toc-h2 toc-link" data-title="Update Product">Update Product</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#discount-codes" class="toc-h1 toc-link" data-title="Discount Codes">Discount Codes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#discount-code-properties" class="toc-h2 toc-link" data-title="Discount Code Properties">Discount Code Properties</a>
+                  </li>
+                  <li>
+                    <a href="#create-discount-code" class="toc-h2 toc-link" data-title="Create Discount Code">Create Discount Code</a>
+                  </li>
+                  <li>
+                    <a href="#get-discount-code" class="toc-h2 toc-link" data-title="Get Discount Code">Get Discount Code</a>
+                  </li>
+                  <li>
+                    <a href="#update-discount-code" class="toc-h2 toc-link" data-title="Update Discount Code">Update Discount Code</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#product-categories" class="toc-h1 toc-link" data-title="Product Categories">Product Categories</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#product-category-properties" class="toc-h2 toc-link" data-title="Product Category Properties">Product Category Properties</a>
+                  </li>
+                  <li>
+                    <a href="#create-product-category" class="toc-h2 toc-link" data-title="Create Product Category">Create Product Category</a>
+                  </li>
+                  <li>
+                    <a href="#get-product-category" class="toc-h2 toc-link" data-title="Get Product Category">Get Product Category</a>
+                  </li>
+                  <li>
+                    <a href="#update-product-category" class="toc-h2 toc-link" data-title="Update Product Category">Update Product Category</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -1172,6 +1240,771 @@
 </tr>
 </tbody></table>
 <h3 id='response-6'>Response</h3>
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h1 id='products'>Products</h1>
+<p>The products API allows you to create, view, and update individual products.</p>
+<h2 id='product-properties'>Product Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The ID of the product</td>
+</tr>
+<tr>
+<td style="text-align: left">categoryAvailableDays</td>
+<td style="text-align: center"><code>Array</code></td>
+<td style="text-align: center">The available days object attached to the product&#39;s category</td>
+</tr>
+<tr>
+<td style="text-align: left">categoryId</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The categoryId the product belongs to</td>
+</tr>
+<tr>
+<td style="text-align: left">categoryName</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The category the product belongs to</td>
+</tr>
+<tr>
+<td style="text-align: left">categoryVisible</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the category this product belongs to is visible</td>
+</tr>
+<tr>
+<td style="text-align: left">companyAcceptsCard</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company accepts LINX/Debit payments</td>
+</tr>
+<tr>
+<td style="text-align: left">companyAcceptsOrdersAfterHours</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company accepts pre-orders. Shoppers can place orders after opening hours</td>
+</tr>
+<tr>
+<td style="text-align: left">companyAcceptsPayouts</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company accepts online payments</td>
+</tr>
+<tr>
+<td style="text-align: left">companyAcceptsPortableCard</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company accepts portable LINX/Debit payments. This must be true to enable linx payments on a curbside order</td>
+</tr>
+<tr>
+<td style="text-align: left">companyCategories</td>
+<td style="text-align: center"><code>string[]</code></td>
+<td style="text-align: center">An array of category Id&#39;s the company belongs to</td>
+</tr>
+<tr>
+<td style="text-align: left">companyDeliveryFee</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The delivery cost set by the store. <strong>Only</strong> applicable for stores offering Delivery and not on Unqueue&#39;s driver network</td>
+</tr>
+<tr>
+<td style="text-align: left">companyDoesCurbside</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company does Curbside Pickups</td>
+</tr>
+<tr>
+<td style="text-align: left">companyDoesDelivery</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company does Delivery as a pickup method.</td>
+</tr>
+<tr>
+<td style="text-align: left">companyDoesWalkin</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company does in store pickups</td>
+</tr>
+<tr>
+<td style="text-align: left">companyId</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The company Id the product belongs to</td>
+</tr>
+<tr>
+<td style="text-align: left">companyLogo</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">A URL pointing to the company logo</td>
+</tr>
+<tr>
+<td style="text-align: left">companyName</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The name of the company the product belongs to</td>
+</tr>
+<tr>
+<td style="text-align: left">companyOnHiredDriverNetwork</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company is on Unqueue&#39;s Pre-order Delivery Network</td>
+</tr>
+<tr>
+<td style="text-align: left">companyVisible</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the store is visible to shoppers</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">description</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">Short text description of the product</td>
+</tr>
+<tr>
+<td style="text-align: left">hasAddons</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the product has add-ons</td>
+</tr>
+<tr>
+<td style="text-align: left">hasVariations</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the product has variations</td>
+</tr>
+<tr>
+<td style="text-align: left">image</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">URL of the featured/first product image</td>
+</tr>
+<tr>
+<td style="text-align: left">inStock</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">The stock status of the product</td>
+</tr>
+<tr>
+<td style="text-align: left">order</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The position of the product in list</td>
+</tr>
+<tr>
+<td style="text-align: left">packingTime</td>
+<td style="text-align: center"><code>packingTime</code></td>
+<td style="text-align: center">A representation of how long it takes to prepare the product</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: center"><code>float</code></td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">purchases</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The number of times the product has been bought</td>
+</tr>
+<tr>
+<td style="text-align: left">salePrice</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The sale price of the product</td>
+</tr>
+<tr>
+<td style="text-align: left">stockCount</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The quantity of products. <code>null</code> if not tracking stock count</td>
+</tr>
+<tr>
+<td style="text-align: left">title</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The name of the category</td>
+</tr>
+<tr>
+<td style="text-align: left">trackStock</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if tracking inventory. Orders of this product will reduce stock count</td>
+</tr>
+<tr>
+<td style="text-align: left">views</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The number of times the product has been viewed</td>
+</tr>
+<tr>
+<td style="text-align: left">visible</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the product should be shown to users</td>
+</tr>
+</tbody></table>
+<h2 id='create-product'>Create Product</h2>
+<p>Create a new product.</p>
+<h3 id='callable-function-name-7'>Callable Function Name</h3>
+<p><code>createProduct</code></p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST /createProduct</code></p>
+<h3 id='body-7'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the product to create</td>
+</tr>
+</tbody></table>
+<h3 id='response-7'>Response</h3>
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h2 id='get-product'>Get Product</h2>
+<p>Retrieve details about a product.</p>
+<h3 id='callable-function-name-8'>Callable Function Name</h3>
+<p><code>getProduct</code></p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST /getProduct</code></p>
+<h3 id='body-8'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the product to retrieve</td>
+</tr>
+</tbody></table>
+<h3 id='response-8'>Response</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"acceptsCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsCash"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsOrdersAfterHours"</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsPayouts"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsPortableCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Street name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"buildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">62</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"categoryId"</span><span class="p">,</span><span class="w"> </span><span class="s2">"categoryId2"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"chatEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deliveryFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deliveryWindows"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nl">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some store description"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"doesCurbside"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"doesDelivery"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h2 id='update-product'>Update Product</h2>
+<p>Update a product with new details.</p>
+<h3 id='callable-function-name-9'>Callable Function Name</h3>
+<p><code>updateProduct</code></p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>POST /updateProduct</code></p>
+<h3 id='body-9'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the product to update</td>
+</tr>
+</tbody></table>
+<h3 id='response-9'>Response</h3>
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h1 id='driver-trips'>Driver Trips</h1>
+<p>The driver-trips API allows you to create, view, and update individual trips.</p>
+<h2 id='driver-trip-properties'>Driver Trip Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">cashToCollect</td>
+<td style="text-align: center"><code>float</code></td>
+<td style="text-align: center">The total cash the driver has to collect on the trip</td>
+</tr>
+<tr>
+<td style="text-align: left">completed</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the trip has ended</td>
+</tr>
+<tr>
+<td style="text-align: left">count</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The count of orders in this trip</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">When the trip was created</td>
+</tr>
+<tr>
+<td style="text-align: left">driver</td>
+<td style="text-align: center"><code>Driver</code></td>
+<td style="text-align: center">When the trip was created</td>
+</tr>
+<tr>
+<td style="text-align: left">driverId</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The ID of the driver assigned to the trip</td>
+</tr>
+<tr>
+<td style="text-align: left">driverTripEarnings</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The amount of money a driver will make on this trip</td>
+</tr>
+<tr>
+<td style="text-align: left">orders</td>
+<td style="text-align: center"><code>Order[]</code></td>
+<td style="text-align: center">-</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: center"><code>pending &#124; assigned &#124; ongoing &#124; completed &#124; cancelled</code></td>
+<td style="text-align: center">The status of the trip</td>
+</tr>
+<tr>
+<td style="text-align: left">tripDuration</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The total length of the trip in minutes</td>
+</tr>
+<tr>
+<td style="text-align: left">tripEarnings</td>
+<td style="text-align: center"><code>float</code></td>
+<td style="text-align: center">-</td>
+</tr>
+<tr>
+<td style="text-align: left">tripLength</td>
+<td style="text-align: center"><code>short &#124; long</code></td>
+<td style="text-align: center">A representation of the trip length</td>
+</tr>
+<tr>
+<td style="text-align: left">tripNumber</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">A 5-digit number for referencing the trip</td>
+</tr>
+<tr>
+<td style="text-align: left">unqueueTripEarnings</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The amount of money Unqueue will make on this trip</td>
+</tr>
+</tbody></table>
+<h2 id='create-driver-trip'>Create Driver Trip</h2>
+<p>Create a new driver-trip.</p>
+<h3 id='callable-function-name-10'>Callable Function Name</h3>
+<p><code>createDriverTrip</code></p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>POST /createDriverTrip</code></p>
+<h3 id='response-10'>Response</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h2 id='get-driver-trip'>Get Driver Trip</h2>
+<p>Retrieve details about a driver-trip.</p>
+<h3 id='callable-function-name-11'>Callable Function Name</h3>
+<p><code>getDriverTrip</code></p>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>POST /getDriverTrip</code></p>
+<h3 id='body-10'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the driver-trip to retrieve</td>
+</tr>
+</tbody></table>
+<h3 id='response-11'>Response</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"acceptsCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsCash"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsOrdersAfterHours"</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsPayouts"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsPortableCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Street name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"buildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">62</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"categoryId"</span><span class="p">,</span><span class="w"> </span><span class="s2">"categoryId2"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"chatEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deliveryFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deliveryWindows"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nl">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some store description"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"doesCurbside"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"doesDelivery"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h2 id='update-product-2'>Update Product</h2>
+<p>Update a product with new details.</p>
+<h3 id='callable-function-name-12'>Callable Function Name</h3>
+<p><code>updateProduct</code></p>
+<h3 id='http-request-12'>HTTP Request</h3>
+<p><code>POST /updateProduct</code></p>
+<h3 id='body-11'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the product to update</td>
+</tr>
+</tbody></table>
+<h3 id='response-12'>Response</h3>
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h1 id='discount-codes'>Discount Codes</h1>
+<p>The discount-codes API allows you to create, view, and update individual discount-codes.</p>
+<h2 id='discount-code-properties'>Discount Code Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">active</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the code is enabled for use</td>
+</tr>
+<tr>
+<td style="text-align: left">code</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The discount code that users will enter</td>
+</tr>
+<tr>
+<td style="text-align: left">companyId</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The companyId the discount code belongs to</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">When the discount code was created</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The unique ID of the discount code</td>
+</tr>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">A description of the purpose of the code</td>
+</tr>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: center"><code>percentage &#124; value</code></td>
+<td style="text-align: center">The method of applying the discount, varies between a percentage and a fixed value</td>
+</tr>
+<tr>
+<td style="text-align: left">updatedAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">When the code was last updated</td>
+</tr>
+<tr>
+<td style="text-align: left">uses</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The number of times the code has been used</td>
+</tr>
+<tr>
+<td style="text-align: left">value</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The actual value of the discount code</td>
+</tr>
+</tbody></table>
+<h2 id='create-discount-code'>Create Discount Code</h2>
+<p>Create a new discount cod.</p>
+<h3 id='callable-function-name-13'>Callable Function Name</h3>
+<p><code>createDriverTrip</code></p>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>POST /createDriverTrip</code></p>
+<h3 id='response-13'>Response</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h2 id='get-discount-code'>Get Discount Code</h2>
+<p>Retrieve details about a driver-trip.</p>
+<h3 id='callable-function-name-14'>Callable Function Name</h3>
+<p><code>getDriverTrip</code></p>
+<h3 id='http-request-14'>HTTP Request</h3>
+<p><code>POST /getDriverTrip</code></p>
+<h3 id='body-12'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the driver-trip to retrieve</td>
+</tr>
+</tbody></table>
+<h3 id='response-14'>Response</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"acceptsCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsCash"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsOrdersAfterHours"</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsPayouts"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsPortableCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Street name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"buildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">62</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"categoryId"</span><span class="p">,</span><span class="w"> </span><span class="s2">"categoryId2"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"chatEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deliveryFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deliveryWindows"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nl">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some store description"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"doesCurbside"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"doesDelivery"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h2 id='update-discount-code'>Update Discount Code</h2>
+<p>Update a product with new details.</p>
+<h3 id='callable-function-name-15'>Callable Function Name</h3>
+<p><code>updateProduct</code></p>
+<h3 id='http-request-15'>HTTP Request</h3>
+<p><code>POST /updateProduct</code></p>
+<h3 id='body-13'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the product to update</td>
+</tr>
+</tbody></table>
+<h3 id='response-15'>Response</h3>
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h1 id='product-categories'>Product Categories</h1>
+<p>The product categories API allows you to create, view, and update individual product categories. This is a sub-collection of the <code>companies</code> collection.</p>
+<h2 id='product-category-properties'>Product Category Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The unique ID of the discount code</td>
+</tr>
+<tr>
+<td style="text-align: left">title</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">True if the code is enabled for use</td>
+</tr>
+<tr>
+<td style="text-align: left">isShowing</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">The discount code that users will enter</td>
+</tr>
+<tr>
+<td style="text-align: left">order</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The companyId the discount code belongs to</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">When the discount code was created</td>
+</tr>
+<tr>
+<td style="text-align: left">availableDays</td>
+<td style="text-align: center"><code>Array[]</code></td>
+<td style="text-align: center">A description of the purpose of the code</td>
+</tr>
+</tbody></table>
+<h2 id='create-product-category'>Create Product Category</h2>
+<p>Create a new product category.</p>
+<h3 id='callable-function-name-16'>Callable Function Name</h3>
+<p><code>createProductCategory</code></p>
+<h3 id='http-request-16'>HTTP Request</h3>
+<p><code>POST /createProductCategory</code></p>
+<h3 id='response-16'>Response</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h2 id='get-product-category'>Get Product Category</h2>
+<p>Retrieve details about a driver-trip.</p>
+<h3 id='callable-function-name-17'>Callable Function Name</h3>
+<p><code>getDriverTrip</code></p>
+<h3 id='http-request-17'>HTTP Request</h3>
+<p><code>POST /getDriverTrip</code></p>
+<h3 id='body-14'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the driver-trip to retrieve</td>
+</tr>
+</tbody></table>
+<h3 id='response-17'>Response</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"acceptsCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsCash"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsOrdersAfterHours"</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsPayouts"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acceptsPortableCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Street name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"buildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">62</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"categoryId"</span><span class="p">,</span><span class="w"> </span><span class="s2">"categoryId2"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"chatEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deliveryFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deliveryWindows"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nl">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some store description"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"doesCurbside"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"doesDelivery"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h2 id='update-product-category'>Update Product Category</h2>
+<p>Update a product with new details.</p>
+<h3 id='callable-function-name-18'>Callable Function Name</h3>
+<p><code>updateProduct</code></p>
+<h3 id='http-request-18'>HTTP Request</h3>
+<p><code>POST /updateProduct</code></p>
+<h3 id='body-15'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the product to update</td>
+</tr>
+</tbody></table>
+<h3 id='response-18'>Response</h3>
 <!-- ////////////////////////////////////////////////////////////////////////////////
 // END SECTION
 //////////////////////////////////////////////////////////////////////////////// -->
