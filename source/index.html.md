@@ -110,6 +110,31 @@ When using the auth key for requests, the base URL for all requests to the Unque
 | unreadCompanyMessages             |              `number`              | The number of unread messages in this chat for the company.
 | unreadShopperMessages             |              `number`              | The number of unread messages in this chat for the user.
 | userId             |              `string`              | The id of the user this chat belongs to
+
+# Drivers
+
+<!-- The chats API allows you to create, view, and update individual chats. -->
+## Driver Properties
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| storeId                  |              <code>string &#124; null</code>               |                                           The id of the company this driver belongs to. |
+| createdAt               |            `Timestamp`            |                                            The timestamp of the driver creation.                                             |
+| storeName              |            <code>string &#124; null</code>             |                                     The name of the company this driver belongs to.                                      |
+| id             |              `string`               |                             The unique ID of the driver                              |
+| active             |              `bool`              | True if the driver is cleared to drive for Unqueue for the Company.
+| carDetails             |              `string`              | A description of the driver's current vehicle.
+| currentTripId             |              `string`              | The ID of the [Driver Trip](#driver-trip-properties) the driver is currently on. 
+| expoToken             |              `string`             | The push notification token for the driver. 
+| fullTimeDriver             |              `bool`              | True if the driver does deliveries for Unqueue. 
+| licensePlate             |              `string`              | The driver's car license plate.
+| location             |              `GeoPoint`              | The last recorded location of the driver.
+| name             |              `string`              | The name of the driver.
+| onTrip             |              `bool`              | True if the driver is currently on a delivery trip.
+| online             |              `bool`              | True if the driver is online and accepting orders.
+| phoneNumber             |              `string`              | The phone number of the driver.
+| registered             |              `bool`              | True if the driver has finished registration.
+| updatedAt             |              `Timestamp`              | The timestamp of the last driver profile update.
 # Companies
 
 The companies API allows you to create, view, and update individual companies.
