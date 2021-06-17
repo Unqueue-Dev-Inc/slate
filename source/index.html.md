@@ -73,6 +73,22 @@ When using the auth key for requests, the base URL for all requests to the Unque
 
 `https://us-central1-unqueue-staging.cloudfunctions.net`
 
+# Categories
+
+The categories API allows you to create, view, and update individual categories.
+
+## Category Properties
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| active                  |              `bool`               |                                           True if the category is visible                                           |
+| createdAt               |            `Timestamp`            |                                            The timestamp of the category creation. created                                             |
+| description              |            `string`             |                                     A short description of the category.                                      |
+| id             |              `string`               |                             The unique ID of the category                              |
+| image             |              `string`              | The cover image of the category.
+| title             |              `string`              | The name of the category. 
+| updatedAt             |              `Timestamp`              | The timestamp of the last category update. 
+| views             |              `number`              | The number of times the category has been viewed.
 # Companies
 
 The companies API allows you to create, view, and update individual companies.
