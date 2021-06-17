@@ -381,6 +381,22 @@
               </ul>
           </li>
           <li>
+            <a href="#pack-times" class="toc-h1 toc-link" data-title="Pack Times">Pack Times</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#pack-time-properties" class="toc-h2 toc-link" data-title="Pack Time Properties">Pack Time Properties</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#payees" class="toc-h1 toc-link" data-title="Payees">Payees</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#payees-properties" class="toc-h2 toc-link" data-title="Payees Properties">Payees Properties</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#products" class="toc-h1 toc-link" data-title="Products">Products</a>
               <ul class="toc-list-h2">
                   <li>
@@ -445,6 +461,22 @@
                   </li>
                   <li>
                     <a href="#update-product-category" class="toc-h2 toc-link" data-title="Update Product Category">Update Product Category</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#ratings" class="toc-h1 toc-link" data-title="Ratings">Ratings</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#rating-properties" class="toc-h2 toc-link" data-title="Rating Properties">Rating Properties</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#user-properties" class="toc-h2 toc-link" data-title="User Properties">User Properties</a>
                   </li>
               </ul>
           </li>
@@ -1505,6 +1537,126 @@
 <!-- ////////////////////////////////////////////////////////////////////////////////
 // END SECTION
 //////////////////////////////////////////////////////////////////////////////// -->
+<h1 id='pack-times'>Pack Times</h1>
+<!-- The chats API allows you to create, view, and update individual chats. -->
+<h2 id='pack-time-properties'>Pack Time Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">companyId</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The id of the company this order pack time belongs to.</td>
+</tr>
+<tr>
+<td style="text-align: left">orderCreatedAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The timestamp of the order creation.</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPackedAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The timestamp of when the order was packed.</td>
+</tr>
+<tr>
+<td style="text-align: left">companyName</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The name of the company this order pack time belongs to.</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The unique ID of the pack time.</td>
+</tr>
+<tr>
+<td style="text-align: left">itemsInOrder</td>
+<td style="text-align: center"><code>Array</code></td>
+<td style="text-align: center">An array of the items that were in the order.</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The unique ID of the order.</td>
+</tr>
+<tr>
+<td style="text-align: left">packTime</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The pack time of the order in minutes.</td>
+</tr>
+</tbody></table>
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h1 id='payees'>Payees</h1>
+<!-- The chats API allows you to create, view, and update individual chats. -->
+<h2 id='payees-properties'>Payees Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">accountType</td>
+<td style="text-align: center"><code>Unqueue Payouts</code></td>
+<td style="text-align: center">Read only.</td>
+</tr>
+<tr>
+<td style="text-align: left">companyId</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The id of the company this payee belongs to.</td>
+</tr>
+<tr>
+<td style="text-align: left">bankAccountHolder</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The owner of the bank account.</td>
+</tr>
+<tr>
+<td style="text-align: left">bankAccountNumber</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The bank account number payments are made to.</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The timestamp of the payee creation.</td>
+</tr>
+<tr>
+<td style="text-align: left">companyName</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The name of the company this payee belongs to.</td>
+</tr>
+<tr>
+<td style="text-align: left">bankName</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The name of the banking institution.</td>
+</tr>
+<tr>
+<td style="text-align: left">paymentSchedule</td>
+<td style="text-align: center"><code>Weekly &#124; Monthly</code></td>
+<td style="text-align: center">The cycle which payments are sent at.</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The unique ID of the payee.</td>
+</tr>
+<tr>
+<td style="text-align: left">verified</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">True if the payee has been approved for Unqueue Payouts.</td>
+</tr>
+</tbody></table>
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
 <h1 id='products'>Products</h1>
 <p>The products API allows you to create, view, and update individual products.</p>
 <h2 id='product-properties'>Product Properties</h2>
@@ -2270,6 +2422,87 @@
 <!-- ////////////////////////////////////////////////////////////////////////////////
 // END SECTION
 //////////////////////////////////////////////////////////////////////////////// -->
+<h1 id='ratings'>Ratings</h1>
+<!-- The chats API allows you to create, view, and update individual chats. -->
+<h2 id='rating-properties'>Rating Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">companyId</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The companyId the rating belongs to</td>
+</tr>
+<tr>
+<td style="text-align: left">userId</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The userId the rating belongs to</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The timestamp of the rating creation.</td>
+</tr>
+<tr>
+<td style="text-align: left">rating</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The value of the rating.</td>
+</tr>
+</tbody></table>
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+<h1 id='users'>Users</h1>
+<!-- The chats API allows you to create, view, and update individual chats. -->
+<h2 id='user-properties'>User Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The timestamp of the user creation.</td>
+</tr>
+<tr>
+<td style="text-align: left">email</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The user&#39;s email address.</td>
+</tr>
+<tr>
+<td style="text-align: left">expoToken</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The user&#39;s push notification token.</td>
+</tr>
+<tr>
+<td style="text-align: left">firstName</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The user&#39;s first name.</td>
+</tr>
+<tr>
+<td style="text-align: left">lastName</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The user&#39;s last name.</td>
+</tr>
+<tr>
+<td style="text-align: left">phoneNumber</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The user&#39;s phone number.</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The unique ID of the user.</td>
+</tr>
+</tbody></table>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
