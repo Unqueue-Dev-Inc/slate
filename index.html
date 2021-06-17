@@ -323,6 +323,14 @@
               </ul>
           </li>
           <li>
+            <a href="#categories" class="toc-h1 toc-link" data-title="Categories">Categories</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#category-properties" class="toc-h2 toc-link" data-title="Category Properties">Category Properties</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#companies" class="toc-h1 toc-link" data-title="Companies">Companies</a>
               <ul class="toc-list-h2">
                   <li>
@@ -485,6 +493,57 @@
 <p>When using the auth key for requests, the base URL for all requests to the Unqueue API is:</p>
 
 <p><code>https://us-central1-unqueue-staging.cloudfunctions.net</code></p>
+<h1 id='categories'>Categories</h1>
+<p>The categories API allows you to create, view, and update individual categories.</p>
+<h2 id='category-properties'>Category Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">active</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the category is visible</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The timestamp of the category creation. created</td>
+</tr>
+<tr>
+<td style="text-align: left">description</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">A short description of the category.</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The unique ID of the category</td>
+</tr>
+<tr>
+<td style="text-align: left">image</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The cover image of the category.</td>
+</tr>
+<tr>
+<td style="text-align: left">title</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The name of the category.</td>
+</tr>
+<tr>
+<td style="text-align: left">updatedAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The timestamp of the last category update.</td>
+</tr>
+<tr>
+<td style="text-align: left">views</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The number of times the category has been viewed.</td>
+</tr>
+</tbody></table>
 <h1 id='companies'>Companies</h1>
 <p>The companies API allows you to create, view, and update individual companies.</p>
 <h2 id='company-properties'>Company Properties</h2>
