@@ -1175,3 +1175,28 @@ Update a product with new details.
 | lastName                  |              `string`               |    The user's last name. |
 | phoneNumber              |            `string`             |   The user's phone number.                                      |
 | id             |              `string`               |                             The unique ID of the user.                              |
+
+# Types
+
+## Company Address
+
+> Company Address Example
+
+```json
+  "storeAddress": {
+      "address": "Some address"
+      "addressLastUpdated": "FirebaseFirestore.Timestamp"
+      "buildingNumber": "string"
+      "location": "FirebaseFirestore.GeoPoint"
+      "streetName": "string"
+  }
+```
+
+| Attribute               |               Type                    |
+| :---------------------- | :-------------------------------: |
+| address               |            `string`            | 
+| addressLastUpdated                  |              `Timestamp`               |  
+| buildingNumber                  |              `string`               |  
+| location                  |              `GeoPoint`               | 
+| streetName                  |              `string`               |   
+
