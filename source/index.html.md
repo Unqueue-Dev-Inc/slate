@@ -325,40 +325,42 @@ The orders API allows you to create, view, update, and delete individual orders.
 | cancelled            |                `bool`                |                Whether or not the order was cancelled                 |
 | carDetails           |               `string`               |   Description of the shopper's car, optionally entered at checkout    |
 | cashAmount           |               `number`               |  The amount of cash the shopper is paying with, entered at checkout   |
-| completed            |                `bool`                |                                                                       |
+| completed            |                `bool`                |            True if the order has been completed.                                                            |
+| containsColdIte      |                `bool`                |                   True if the order contains cold items. Used as in indicator of whether to included ice packs or not.                                                    |
 | count                |               `number`               |                   The number of items in the order                    |
 | createdAt            |             `Timestamp`              |                      When the order was created.                      |
 | customerEmail        |               `string`               |                          The shopper's email                          |
 | customerLicense      |               `string`               |           The shopper's license plate, entered at checkout            |
 | customerPhone        |               `string`               |                      The shopper's phone number                       |
 | deliveryAddress      |               `object`               |                Saved from the associated user document                |
-| deliveryFee          |               `number`               |                                                                       |
+| deliveryFee          |               `number`               |           The cost of delivery.                                                            |
 | deliveryWindow       |            `dddd Do MMMM`            |            The selected date for delivery in string format            |
-| driverEnRoute        |                `bool`                |                                                                       |
+| driverEnRoute        |                `bool`                |           True if the driver is on the way to the shopper to deliver the order.                                                            |
 | onHiredDriverNetwork |                `bool`                |          True if this order is on the Unqueue Driver network          |
-| orderNumber          |               `string`               |                                                                       |
-| owner                |               `string`               |                                                                       |
-| ownerId              |               `string`               |                                                                       |
-| packTimeInMinutes    |               `number`               |                                                                       |
-| packed               |                `bool`                |                                                                       |
+| orderNumber          |               `string`               |         A 4 digit number used to identify the order on pickup tags.                                                              |
+| owner                |               `string`               |          The name of the shopper this order belongs to                                                             |
+| ownerId              |               `string`               |          The userId this order belongs to                                                             |
+| packed               |                `bool`                |      True if the items in the order are packed and ready for pickup or delivery.                                                                 |
 | packedAt             |             `Timestamp`              |                        Automatically generated                        |
-| paymentMethod        |               `string`               |                                                                       |
+| packTimeInMinutes    |               `number`               |       The amount of minutes it will take to prepare this order.                                                                |
+| paymentMethod        |      <code>Cash &#124; Credit Card &#124; Debit/Linx</code>               |                                                                       |
 | pickupTimeDate       |            `bool/object`             |     False if shopper picking up ASAP. Object if it is a pre-order     |
-| requiresPayment      |                `bool`                |                                                                       |
-| source               |             `web \| app`             |                The platform the order was placed from                 |
+| requiresPayment      |                `bool`                |    True if the order still needs to be paid for.                                                                   |
+| source               |             <code>web &#124; app</code>             |                The platform the order was placed from                 |
 | specialNotes         |               `string`               |          Special notes attached to the order by the shopper           |
-| status               |               `string`               |                         Defaults to 'Pending'                         |
+| status               |               <code>pending &#124; claimed</code>               |                         Defaults to 'Pending'                         |
 | storeAddress         |               `object`               |              Saved from the associated company document               |
 | storeHours           |               `object`               |              Saved from the associated company document               |
 | storeId              |               `string`               |              Saved from the associated company document               |
 | storeLogo            |               `string`               |          The logo of the company this order was placed from           |
 | storeName            |               `string`               |              Saved from the associated company document               |
 | storePhone           |               `string`               |              Saved from the associated company document               |
-| timeWindow           | `daytimeDelivery \| eveningDelivery` |                                                                       |
+| timeWindow           | <code>daytimeDelivery &#124; eveningDelivery</code> | Whether this order will be delivered as part of the morning or evening shift|                                                                       |
 | total                |               `float`                | The total cost of the order including delivery, addons and variations |
-| type                 |               `string`               |                    The pickup method of the order                     |
-| unavailableItems     |                `bool`                |                                                                       |
-
+| tripId                |               `string`                | The [Driver Trip](#driver-trip-properties) this order is a part of |
+| tripOrder                |               `number`                | The position of this order in the [Driver Trip](#driver-trip-properties) |
+| type                 |                <code>Delivery &#124; Curbside &#124; Walkin</code>               |                    The pickup method of the order                     |
+| unavailableItems     |                `bool`                |   True if the company marked any of the items in the order as unavailable.                                                                    |
 ## Create Order
 
 Create a new draft order.
