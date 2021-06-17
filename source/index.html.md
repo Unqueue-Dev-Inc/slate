@@ -1146,6 +1146,22 @@ Update a product with new details.
 // END SECTION
 //////////////////////////////////////////////////////////////////////////////// -->
 
+# Ratings
+
+<!-- The chats API allows you to create, view, and update individual chats. -->
+## Rating Properties
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| companyId |               `string`               |                     The companyId the rating belongs to                     |
+| userId |               `string`               |                     The userId the rating belongs to                     |
+| createdAt               |            `Timestamp`            |       The timestamp of the rating creation.                                             |
+| rating              |            `number`             |   The value of the rating.                                      |
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+
 # Users
 
 <!-- The chats API allows you to create, view, and update individual chats. -->
@@ -1156,7 +1172,6 @@ Update a product with new details.
 | createdAt               |            `Timestamp`            |       The timestamp of the user creation.                                             |
 | email                  |              `string`               |       The user's email address. |
 | expoToken                  |              `string`               |       The user's push notification token. |
-| accountType                  |              `Unqueue Payouts`               |       Read only. |
 | firstName                  |              `string`               |   The user's first name. |
 | lastName                  |              `string`               |    The user's last name. |
 | phoneNumber              |            `string`             |   The user's phone number.                                      |
