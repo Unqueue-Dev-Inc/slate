@@ -481,6 +481,14 @@
               </ul>
           </li>
           <li>
+            <a href="#types" class="toc-h1 toc-link" data-title="Types">Types</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#company-address" class="toc-h2 toc-link" data-title="Company Address">Company Address</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -2501,6 +2509,45 @@
 <td style="text-align: left">id</td>
 <td style="text-align: center"><code>string</code></td>
 <td style="text-align: center">The unique ID of the user.</td>
+</tr>
+</tbody></table>
+<h1 id='types'>Types</h1><h2 id='company-address'>Company Address</h2>
+<blockquote>
+<p>Company Address Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="nl">"storeAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some address"</span><span class="w">
+      </span><span class="nl">"addressLastUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FirebaseFirestore.Timestamp"</span><span class="w">
+      </span><span class="nl">"buildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FirebaseFirestore.GeoPoint"</span><span class="w">
+      </span><span class="nl">"streetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">address</td>
+<td style="text-align: center"><code>string</code></td>
+</tr>
+<tr>
+<td style="text-align: left">addressLastUpdated</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+</tr>
+<tr>
+<td style="text-align: left">buildingNumber</td>
+<td style="text-align: center"><code>string</code></td>
+</tr>
+<tr>
+<td style="text-align: left">location</td>
+<td style="text-align: center"><code>GeoPoint</code></td>
+</tr>
+<tr>
+<td style="text-align: left">streetName</td>
+<td style="text-align: center"><code>string</code></td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
