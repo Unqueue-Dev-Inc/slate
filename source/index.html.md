@@ -167,14 +167,14 @@ The companies API allows you to create, view, and update individual companies.
 | headerThumb             |             `string`              |                               The URL of an optimized version of the company's header image                               |
 | id                      |             `string`              |                                             The ID of the company in the DB.                                              |
 | lastOpened              |            `Timestamp`            |                                 The last time the business app was opened by the Company                                  |
-| lastStep                |             `string`              |                                                                                                                           |
+| lastStep                |             `string` |   A string representing the user's last step during sign up.                                                                                                                        |
 | logo                    |             `string`              |                                              The URL of the company's logo.                                               |
 | logoOtherThumb          |             `string`              |                                                                                                                           |
-| logoThumb100            |             `string`              |                                                                                                                           |
-| logoThumb300            |             `string`              |                                                                                                                           |
-| logoThumb640            |             `string`              |                                                                                                                           |
+| logoThumb100            |             `string`     | The URL of the company's logo with dimensions 100 x 100.                                                                                                                           |
+| logoThumb300            |             `string` | The URL of the company's logo with dimensions 300 x 300                                                                                                                           |
+| logoThumb640            |             `string`  | The URL of the company's logo with dimensions 640 x 640                                                                                                                           |
 | masterVerified          |              `bool`               |                                 True if the company account is enabled by Unqueue admin.                                  |
-| maxDeliveryTime         |       `string (eg 60mins)`        |       A string representation of how far a business is willing to deliver. Only applies if not on Unqueue Delivery        |
+| maxDeliveryTime         |       <code>20 Mins &#124; 30 Mins &#124; 40 Mins &#124; 60 Mins</code>        |       A string representation of how far a business is willing to deliver. Only applies if not on Unqueue Delivery        |
 | minForDelivery          |              `float`              |          The minimum that a shopper must spend to qualify for delivery. Only applies if not on Unqueue Delivery           |
 | name                    |             `string`              |                                                  The name of the company                                                  |
 | numRatings              |             `number`              |                                       The number of ratings received by the company                                       |
@@ -185,12 +185,11 @@ The companies API allows you to create, view, and update individual companies.
 | ownerFirstName          |             `string`              |                                 The first name of the person running the company account.                                 |
 | ownerLastName           |             `string`              |                                 The last name of the person running the company account.                                  |
 | packingTime             |             (Legacy).             |
-| phone                   |             `string`              |                                              The phone number of the company                                              |
-| photoId                 |             `strinng`             |                                                                                                                           |
+| phone                   |             `string`              |                                              The phone number of the company                                              |                                                                                                                          |
 | rating                  |              `float`              |                                               The company's average rating                                                |
 | storeOn                 |              `bool`               |                                      True if the store should be visible to shoppers                                      |
 | storeOnFlagged          |              `bool`               |                              True if Unqueue has been alerted that this store has turned on                               |
-| storeProductsView       |         `gallery or list`         |                            Whether to display the company's products in a list or gallery view                            |
+| storeProductsView       |         <code>gallery &#124; list</code>         |                            Whether to display the company's products in a list or gallery view                            |
 | tags                    |            `string[]`             |                                                         (Legacy)                                                          |
 | uniqueUsername          |             `string`              |                                                                                                                           |
 | unreadCompanyMessages   |             `number`              |                                                                                                                           |
@@ -325,7 +324,7 @@ The orders API allows you to create, view, update, and delete individual orders.
 | carDetails           |               `string`               |   Description of the shopper's car, optionally entered at checkout    |
 | cashAmount           |               `number`               |  The amount of cash the shopper is paying with, entered at checkout   |
 | completed            |                `bool`                |            True if the order has been completed.                                                            |
-| containsColdIte      |                `bool`                |                   True if the order contains cold items. Used as in indicator of whether to included ice packs or not.                                                    |
+| containsColdItems      |                `bool`                |                   True if the order contains cold items. Used as in indicator of whether to included ice packs or not.                                                    |
 | count                |               `number`               |                   The number of items in the order                    |
 | createdAt            |             `Timestamp`              |                      When the order was created.                      |
 | customerEmail        |               `string`               |                          The shopper's email                          |
@@ -612,15 +611,15 @@ The products API allows you to create, view, and update individual products.
 | companyName                    |   `string`    |                                      The name of the company the product belongs to                                      |
 | companyOnHiredDriverNetwork    |    `bool`     |                              True if the company is on Unqueue's Pre-order Delivery Network                              |
 | companyVisible                 |    `bool`     |                                         True if the store is visible to shoppers                                         |
-| createdAt                      |  `Timestamp`  |                                                                                                                          |
-| description                    |   `string`    |                                          Short text description of the product                                           |
+| createdAt                      |  `Timestamp`  | The timestamp of the product's creation.                                                                                                                         |
+| description                    |   `string`    |                                          Short description of the product                                           |
 | hasAddons                      |    `bool`     |                                             True if the product has add-ons                                              |
 | hasVariations                  |    `bool`     |                                            True if the product has variations                                            |
 | image                          |   `string`    |                                         URL of the featured/first product image                                          |
 | inStock                        |    `bool`     |                                             The stock status of the product                                              |
 | order                          |   `number`    |                                           The position of the product in list                                            |
 | packingTime                    | `packingTime` |                               A representation of how long it takes to prepare the product                               |
-| price                          |    `float`    |                                                                                                                          |
+| price                          |    `float`    |  The price of the product.                                                                                                                        |
 | purchases                      |   `number`    |                                     The number of times the product has been bought                                      |
 | salePrice                      |   `number`    |                                              The sale price of the product                                               |
 | stockCount                     |   `number`    |                               The quantity of products. `null` if not tracking stock count                               |
@@ -758,7 +757,7 @@ The driver-trips API allows you to create, view, and update individual trips.
 | driver              |                                       `Driver`                                        |              When the trip was created               |
 | driverId            |                                       `string`                                        |      The ID of the driver assigned to the trip       |
 | driverTripEarnings  |                                       `number`                                        | The amount of money a driver will make on this trip  |
-| orders              |                                       `Order[]`                                       |                          -                           |
+| orders              |                                       [Order[]](#order-properties)                                       |                          -                           |
 | status              | <code>pending &#124; assigned &#124; ongoing &#124; completed &#124; cancelled</code> |                The status of the trip                |
 | tripDuration        |                                       `number`                                        |       The total length of the trip in minutes        |
 | tripEarnings        |                                        `float`                                        |                          -                           |
