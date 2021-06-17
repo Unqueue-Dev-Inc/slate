@@ -84,7 +84,7 @@ When using the auth key for requests, the base URL for all requests to the Unque
 | active                  |              `bool`               |                                           True if the category is visible                                           |
 | createdAt               |            `Timestamp`            |                                            The timestamp of the category creation. created                                             |
 | description              |            `string`             |                                     A short description of the category.                                      |
-| id             |              `string`               |                             The unique ID of the category                              |
+| id             |              `string`               |                             The unique ID of the category.                              |
 | image             |              `string`              | The cover image of the category.
 | title             |              `string`              | The name of the category. 
 | type             |              <code>default &#124; leaderboard &#124; featured</code>              | The type of a category determines where it is shown on the website. 
@@ -98,19 +98,18 @@ When using the auth key for requests, the base URL for all requests to the Unque
 
 | Attribute               |               Type                |                                                        Description                                                        |
 | :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
-| companyId                  |              `string`               |                                           The id of the company this chat belongs to. |
-| createdAt               |            `Timestamp`            |                                            The timestamp of the chat creation.                                             |
-| companyName              |            `string`             |                                     The name of the company this chat belongs to.                                      |
 | id             |              `string`               |                             The unique ID of the chat                              |
-| currentAdmin             |              <code>string &#124; null</code>              | The name of the admin managing the chat. (For Unqueue Support chat)
+| companyId                  |              `string`               |                                           The id of the company this chat belongs to. |
+| companyName              |            `string`             |                                     The name of the company this chat belongs to.                                      |
+| createdAt               |            `Timestamp`            |                                            The timestamp of the chat creation.                                             |
+| currentAdmin             |              <code>string &#124; null</code>              | The name of the admin managing the chat. (For Unqueue Support chat).
 | lastMessageSentAt             |              `Timestamp`              | The timestamp of the last sent message.
 | latestMessage             |              `Object`              | An object representing the last message sent. 
 | logo             |              `string`             | The company logo. 
-| shopperName             |              `string`              | The name of the user this chat belongs to 
+| shopperName             |              `string`              | The name of the user this chat belongs to.
 | unreadCompanyMessages             |              `number`              | The number of unread messages in this chat for the company.
 | unreadShopperMessages             |              `number`              | The number of unread messages in this chat for the user.
-| userId             |              `string`              | The id of the user this chat belongs to
-
+| userId             |              `string`              | The id of the user this chat belongs to.
 # Drivers
 
 <!-- The chats API allows you to create, view, and update individual chats. -->

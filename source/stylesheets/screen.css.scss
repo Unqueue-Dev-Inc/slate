@@ -484,7 +484,7 @@ body {
     overflow: auto;
     th,
     td {
-      text-align: left;
+      text-align: left !important;
       vertical-align: top;
       line-height: 1.6;
       code {
