@@ -1145,3 +1145,19 @@ Update a product with new details.
 <!-- ////////////////////////////////////////////////////////////////////////////////
 // END SECTION
 //////////////////////////////////////////////////////////////////////////////// -->
+
+# Users
+
+<!-- The chats API allows you to create, view, and update individual chats. -->
+## User Properties
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| createdAt               |            `Timestamp`            |       The timestamp of the user creation.                                             |
+| email                  |              `string`               |       The user's email address. |
+| expoToken                  |              `string`               |       The user's push notification token. |
+| accountType                  |              `Unqueue Payouts`               |       Read only. |
+| firstName                  |              `string`               |   The user's first name. |
+| lastName                  |              `string`               |    The user's last name. |
+| phoneNumber              |            `string`             |   The user's phone number.                                      |
+| id             |              `string`               |                             The unique ID of the user.                              |
