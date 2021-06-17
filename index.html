@@ -339,6 +339,14 @@
               </ul>
           </li>
           <li>
+            <a href="#drivers" class="toc-h1 toc-link" data-title="Drivers">Drivers</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#driver-properties" class="toc-h2 toc-link" data-title="Driver Properties">Driver Properties</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#companies" class="toc-h1 toc-link" data-title="Companies">Companies</a>
               <ul class="toc-list-h2">
                   <li>
@@ -626,6 +634,102 @@
 <td style="text-align: left">userId</td>
 <td style="text-align: center"><code>string</code></td>
 <td style="text-align: center">The id of the user this chat belongs to</td>
+</tr>
+</tbody></table>
+<h1 id='drivers'>Drivers</h1>
+<!-- The chats API allows you to create, view, and update individual chats. -->
+<h2 id='driver-properties'>Driver Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">storeId</td>
+<td style="text-align: center"><code>string &#124; null</code></td>
+<td style="text-align: center">The id of the company this driver belongs to.</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The timestamp of the driver creation.</td>
+</tr>
+<tr>
+<td style="text-align: left">storeName</td>
+<td style="text-align: center"><code>string &#124; null</code></td>
+<td style="text-align: center">The name of the company this driver belongs to.</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The unique ID of the driver</td>
+</tr>
+<tr>
+<td style="text-align: left">active</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the driver is cleared to drive for Unqueue for the Company.</td>
+</tr>
+<tr>
+<td style="text-align: left">carDetails</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">A description of the driver&#39;s current vehicle.</td>
+</tr>
+<tr>
+<td style="text-align: left">currentTripId</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The ID of the <a href="#driver-trip-properties">Driver Trip</a> the driver is currently on.</td>
+</tr>
+<tr>
+<td style="text-align: left">expoToken</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The push notification token for the driver.</td>
+</tr>
+<tr>
+<td style="text-align: left">fullTimeDriver</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the driver does deliveries for Unqueue.</td>
+</tr>
+<tr>
+<td style="text-align: left">licensePlate</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The driver&#39;s car license plate.</td>
+</tr>
+<tr>
+<td style="text-align: left">location</td>
+<td style="text-align: center"><code>GeoPoint</code></td>
+<td style="text-align: center">The last recorded location of the driver.</td>
+</tr>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The name of the driver.</td>
+</tr>
+<tr>
+<td style="text-align: left">onTrip</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the driver is currently on a delivery trip.</td>
+</tr>
+<tr>
+<td style="text-align: left">online</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the driver is online and accepting orders.</td>
+</tr>
+<tr>
+<td style="text-align: left">phoneNumber</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The phone number of the driver.</td>
+</tr>
+<tr>
+<td style="text-align: left">registered</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the driver has finished registration.</td>
+</tr>
+<tr>
+<td style="text-align: left">updatedAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The timestamp of the last driver profile update.</td>
 </tr>
 </tbody></table>
 <h1 id='companies'>Companies</h1>
