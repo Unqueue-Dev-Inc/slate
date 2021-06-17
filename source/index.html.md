@@ -544,6 +544,48 @@ Update an order with new details.
 // END SECTION
 //////////////////////////////////////////////////////////////////////////////// -->
 
+# Pack Times
+
+<!-- The chats API allows you to create, view, and update individual chats. -->
+## Pack Time Properties
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| companyId                  |              `string`               |                                           The id of the company this order pack time belongs to. |
+| orderCreatedAt               |            `Timestamp`            |                                            The timestamp of the order creation.                                             |
+| orderPackedAt               |            `Timestamp`            |                                            The timestamp of when the order was packed.                                             |
+| companyName              |            `string`             |                                     The name of the company this order pack time belongs to.                                      |
+| id             |              `string`               |                             The unique ID of the pack time.                              |
+| itemsInOrder            |         `Array`              | An array of the items that were in the order.
+| orderId             |              `Timestamp`              | The unique ID of the order.
+| packTime             |              `number`              | The pack time of the order in minutes. 
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
+# Payees
+
+<!-- The chats API allows you to create, view, and update individual chats. -->
+## Payees Properties
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| accountType                  |              `Unqueue Payouts`               |       Read only. |
+| companyId                  |              `string`               |       The id of the company this payee belongs to. |
+| bankAccountHolder                  |              `string`               |   The owner of the bank account. |
+| bankAccountNumber                  |              `string`               |    The bank account number payments are made to. |
+| createdAt               |            `Timestamp`            |       The timestamp of the payee creation.                                             |
+| companyName              |            `string`             |   The name of the company this payee belongs to.                                      |
+| bankName              |            `string`             |       The name of the banking institution.                                      |
+| paymentSchedule              |            <code>Weekly &#124; Monthly</code>             |                                     The cycle which payments are sent at.                                      |
+| id             |              `string`               |                             The unique ID of the payee.                              |
+| verified             |              `number`              | True if the payee has been approved for Unqueue Payouts. 
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////
+// END SECTION
+//////////////////////////////////////////////////////////////////////////////// -->
 # Products
 
 The products API allows you to create, view, and update individual products.
