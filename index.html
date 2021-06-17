@@ -1156,7 +1156,12 @@
 <tr>
 <td style="text-align: left">completed</td>
 <td style="text-align: center"><code>bool</code></td>
-<td style="text-align: center"></td>
+<td style="text-align: center">True if the order has been completed.</td>
+</tr>
+<tr>
+<td style="text-align: left">containsColdIte</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the order contains cold items. Used as in indicator of whether to included ice packs or not.</td>
 </tr>
 <tr>
 <td style="text-align: left">count</td>
@@ -1191,7 +1196,7 @@
 <tr>
 <td style="text-align: left">deliveryFee</td>
 <td style="text-align: center"><code>number</code></td>
-<td style="text-align: center"></td>
+<td style="text-align: center">The cost of delivery.</td>
 </tr>
 <tr>
 <td style="text-align: left">deliveryWindow</td>
@@ -1201,7 +1206,7 @@
 <tr>
 <td style="text-align: left">driverEnRoute</td>
 <td style="text-align: center"><code>bool</code></td>
-<td style="text-align: center"></td>
+<td style="text-align: center">True if the driver is on the way to the shopper to deliver the order.</td>
 </tr>
 <tr>
 <td style="text-align: left">onHiredDriverNetwork</td>
@@ -1211,27 +1216,22 @@
 <tr>
 <td style="text-align: left">orderNumber</td>
 <td style="text-align: center"><code>string</code></td>
-<td style="text-align: center"></td>
+<td style="text-align: center">A 4 digit number used to identify the order on pickup tags.</td>
 </tr>
 <tr>
 <td style="text-align: left">owner</td>
 <td style="text-align: center"><code>string</code></td>
-<td style="text-align: center"></td>
+<td style="text-align: center">The name of the shopper this order belongs to</td>
 </tr>
 <tr>
 <td style="text-align: left">ownerId</td>
 <td style="text-align: center"><code>string</code></td>
-<td style="text-align: center"></td>
-</tr>
-<tr>
-<td style="text-align: left">packTimeInMinutes</td>
-<td style="text-align: center"><code>number</code></td>
-<td style="text-align: center"></td>
+<td style="text-align: center">The userId this order belongs to</td>
 </tr>
 <tr>
 <td style="text-align: left">packed</td>
 <td style="text-align: center"><code>bool</code></td>
-<td style="text-align: center"></td>
+<td style="text-align: center">True if the items in the order are packed and ready for pickup or delivery.</td>
 </tr>
 <tr>
 <td style="text-align: left">packedAt</td>
@@ -1239,8 +1239,13 @@
 <td style="text-align: center">Automatically generated</td>
 </tr>
 <tr>
+<td style="text-align: left">packTimeInMinutes</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The amount of minutes it will take to prepare this order.</td>
+</tr>
+<tr>
 <td style="text-align: left">paymentMethod</td>
-<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center"><code>Cash &#124; Credit Card &#124; Debit/Linx</code></td>
 <td style="text-align: center"></td>
 </tr>
 <tr>
@@ -1251,12 +1256,12 @@
 <tr>
 <td style="text-align: left">requiresPayment</td>
 <td style="text-align: center"><code>bool</code></td>
-<td style="text-align: center"></td>
+<td style="text-align: center">True if the order still needs to be paid for.</td>
 </tr>
 <tr>
 <td style="text-align: left">source</td>
-<td style="text-align: center">`web \</td>
-<td style="text-align: center">app`</td>
+<td style="text-align: center"><code>web &#124; app</code></td>
+<td style="text-align: center">The platform the order was placed from</td>
 </tr>
 <tr>
 <td style="text-align: left">specialNotes</td>
@@ -1265,7 +1270,7 @@
 </tr>
 <tr>
 <td style="text-align: left">status</td>
-<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center"><code>pending &#124; claimed</code></td>
 <td style="text-align: center">Defaults to &#39;Pending&#39;</td>
 </tr>
 <tr>
@@ -1300,8 +1305,8 @@
 </tr>
 <tr>
 <td style="text-align: left">timeWindow</td>
-<td style="text-align: center">`daytimeDelivery \</td>
-<td style="text-align: center">eveningDelivery`</td>
+<td style="text-align: center"><code>daytimeDelivery &#124; eveningDelivery</code></td>
+<td style="text-align: center">Whether this order will be delivered as part of the morning or evening shift</td>
 </tr>
 <tr>
 <td style="text-align: left">total</td>
@@ -1309,14 +1314,24 @@
 <td style="text-align: center">The total cost of the order including delivery, addons and variations</td>
 </tr>
 <tr>
-<td style="text-align: left">type</td>
+<td style="text-align: left">tripId</td>
 <td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The <a href="#driver-trip-properties">Driver Trip</a> this order is a part of</td>
+</tr>
+<tr>
+<td style="text-align: left">tripOrder</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The position of this order in the <a href="#driver-trip-properties">Driver Trip</a></td>
+</tr>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: center"><code>Delivery &#124; Curbside &#124; Walkin</code></td>
 <td style="text-align: center">The pickup method of the order</td>
 </tr>
 <tr>
 <td style="text-align: left">unavailableItems</td>
 <td style="text-align: center"><code>bool</code></td>
-<td style="text-align: center"></td>
+<td style="text-align: center">True if the company marked any of the items in the order as unavailable.</td>
 </tr>
 </tbody></table>
 <h2 id='create-order'>Create Order</h2>
