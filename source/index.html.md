@@ -206,14 +206,29 @@ Create a new company.
 
 ### HTTP Request
 
-`POST /createCompany`
+`POST /api/v1/companies`
 
 ### Body
 
 | Parameter | Description                     |
 | --------- | ------------------------------- |
 | id        | The ID of the company to update |
-
+| acceptsCard   |         True if the company accepts LINX/Debit payments                                      |
+| acceptsCash   |          True if the company accepts cash payments     |
+|acceptsPayouts| True if the company accepts online payments |
+|acceptsPortableCard| True if the company accepts portable LINX/Debit payments. This must be true to enable LINX payments on a curbside order|
+|deliveryFee| The cost of deliveries set by the store. Only applicable for stores offering Delivery and not on Unqueue's driver network|
+|description| A short description of the company.|
+|doesCurbside| True if the company facilitates curbside pickups.|
+|doesDelivery| True if the company does Delivery as a pickup method. |
+|doesWalkin| True if the company facilitates in store pickups|
+|email| The email address of the company|
+|emailVerified| True if the company's email address is verified.|
+|logo| The URL of the company's logo.|
+|name| The name of the company|
+|ownerFirstName| The first name of the person running the company account.|
+|ownerLastName| The last name of the person running the company account.|
+|phone| The phone number of the company |
 ### Response
 
 <!-- ////////////////////////////////////////////////////////////////////////////////
@@ -230,7 +245,7 @@ Retrieve details about a company.
 
 ### HTTP Request
 
-`POST /getCompany`
+`POST /companies`
 
 ### Body
 
@@ -603,7 +618,7 @@ The products API allows you to create, view, and update individual products.
 | companyAcceptsPortableCard     |    `bool`     | True if the company accepts portable LINX/Debit payments. This must be true to enable linx payments on a curbside order  |
 | companyCategories              |  `string[]`   |                                     An array of category Id's the company belongs to                                     |
 | companyDeliveryFee             |   `number`    | The delivery cost set by the store. **Only** applicable for stores offering Delivery and not on Unqueue's driver network |
-| companyDoesCurbside            |    `bool`     |                                        True if the company does Curbside Pickups                                         |
+| companyDoesCurbside            |    `bool`     |                                        True if the company facilitates curbside pickups.                                         |
 | companyDoesDelivery            |    `bool`     |                                  True if the company does Delivery as a pickup method.                                   |
 | companyDoesWalkin              |    `bool`     |                                        True if the company does in store pickups                                         |
 | companyId                      |   `string`    |                                          The company Id the product belongs to                                           |
