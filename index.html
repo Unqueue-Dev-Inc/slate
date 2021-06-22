@@ -1053,7 +1053,7 @@
 <h3 id='callable-function-name'>Callable Function Name</h3>
 <p><code>createCompany</code></p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /createCompany</code></p>
+<p><code>POST /api/v1/companies</code></p>
 <h3 id='body'>Body</h3>
 <table><thead>
 <tr>
@@ -1065,6 +1065,70 @@
 <td>id</td>
 <td>The ID of the company to update</td>
 </tr>
+<tr>
+<td>acceptsCard</td>
+<td>True if the company accepts LINX/Debit payments</td>
+</tr>
+<tr>
+<td>acceptsCash</td>
+<td>True if the company accepts cash payments</td>
+</tr>
+<tr>
+<td>acceptsPayouts</td>
+<td>True if the company accepts online payments</td>
+</tr>
+<tr>
+<td>acceptsPortableCard</td>
+<td>True if the company accepts portable LINX/Debit payments. This must be true to enable LINX payments on a curbside order</td>
+</tr>
+<tr>
+<td>deliveryFee</td>
+<td>The cost of deliveries set by the store. Only applicable for stores offering Delivery and not on Unqueue&#39;s driver network</td>
+</tr>
+<tr>
+<td>description</td>
+<td>A short description of the company.</td>
+</tr>
+<tr>
+<td>doesCurbside</td>
+<td>True if the company facilitates curbside pickups.</td>
+</tr>
+<tr>
+<td>doesDelivery</td>
+<td>True if the company does Delivery as a pickup method.</td>
+</tr>
+<tr>
+<td>doesWalkin</td>
+<td>True if the company facilitates in store pickups</td>
+</tr>
+<tr>
+<td>email</td>
+<td>The email address of the company</td>
+</tr>
+<tr>
+<td>emailVerified</td>
+<td>True if the company&#39;s email address is verified.</td>
+</tr>
+<tr>
+<td>logo</td>
+<td>The URL of the company&#39;s logo.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>The name of the company</td>
+</tr>
+<tr>
+<td>ownerFirstName</td>
+<td>The first name of the person running the company account.</td>
+</tr>
+<tr>
+<td>ownerLastName</td>
+<td>The last name of the person running the company account.</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>The phone number of the company</td>
+</tr>
 </tbody></table>
 <h3 id='response'>Response</h3>
 <!-- ////////////////////////////////////////////////////////////////////////////////
@@ -1075,7 +1139,7 @@
 <h3 id='callable-function-name-2'>Callable Function Name</h3>
 <p><code>getCompany</code></p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST /getCompany</code></p>
+<p><code>POST /companies</code></p>
 <h3 id='body-2'>Body</h3>
 <table><thead>
 <tr>
@@ -1728,7 +1792,7 @@
 <tr>
 <td style="text-align: left">companyDoesCurbside</td>
 <td style="text-align: center"><code>bool</code></td>
-<td style="text-align: center">True if the company does Curbside Pickups</td>
+<td style="text-align: center">True if the company facilitates curbside pickups.</td>
 </tr>
 <tr>
 <td style="text-align: left">companyDoesDelivery</td>
