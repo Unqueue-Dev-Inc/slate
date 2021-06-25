@@ -151,6 +151,7 @@ The companies API allows you to create, view, and update individual companies.
 | address                 | The address object of the company |
 | categories              |            `string[]`             |                                     An array of category Id's the company belongs to                                      |
 | chatEnabled             |              `bool`               |                             (Legacy) True if the company accepts chat messages from shoppers                              |
+| customCheckoutEnabled             |              `bool`               |                             True if the company is using the custom checkout version of Unqueue                              |
 | createdAt               |            `Timestamp`            |                                            When the company was first created                                             |
 | deliveryFee             |              `float`              | The cost of deliveries set by the store. Only applicable for stores offering Delivery and not on Unqueue's driver network |
 | deliveryWindows         |        `DeliveryWindows[]`        |                                The days and time windows that the company offers delivery                                 |
