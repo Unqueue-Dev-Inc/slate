@@ -27,7 +27,25 @@ We have language bindings in JavaScript! You can view code examples in the dark 
 
 If you are using our API using the Firebase SDK, there is no need to do any authentication as long as you have initialized using Unqueue's credentials.
 
-If you are using our API via HTTP requests, ensure to add the `auth` header to your requests. You can register a new Unqueue auth key <a href='mailto:andel@agyei.design'>here</a>.
+If you are using our API via HTTP requests, ensure to add the `Authorization` header to your requests. We will provide you with a token. You can register a new Unqueue token by sending an email <a href='mailto:andel@agyei.design'>here</a>.
+
+> Using the Authorization header, an axios example
+
+```javascript
+const token = "..your token..";
+
+axios.post(
+  baseUrl,
+  {
+    //...data
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
+```
 
 > Using Callable Firebase functions:
 
@@ -47,31 +65,19 @@ const exampleCallableFunctionCall = async () => {
 };
 ```
 
-> Using the auth header, an axios example
-
-```javascript
-const token = "..your token..";
-
-axios.post(
-  baseUrl,
-  {
-    //...data
-  },
-  {
-    headers: {
-      auth: token,
-    },
-  }
-);
-```
-
 > Make sure to replace `token` with your own key.
 
 ## Requests
 
 When using the auth key for requests, the base URL for all requests to the Unqueue API is:
 
+### Testing
+
 `https://us-central1-unqueue-staging.cloudfunctions.net`
+
+### Live
+
+You will be provided with a live URL after your API request.
 
 # Categories
 
@@ -82,7 +88,7 @@ When using the auth key for requests, the base URL for all requests to the Unque
 | Attribute               |               Type                |                                                        Description                                                        |
 | :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
 | active                  |              `bool`               |                                           True if the category is visible                                           |
-| createdAt               |            `Timestamp`            |                                            The timestamp of the category creation. created                                             |
+| createdAt               |            `Timestamp`            |                                            The timestamp of the category creation.                                             |
 | description              |            `string`             |                                     A short description of the category.                                      |
 | id             |              `string`               |                             The unique ID of the category.                              |
 | image             |              `string`              | The cover image of the category.
@@ -98,8 +104,8 @@ When using the auth key for requests, the base URL for all requests to the Unque
 
 | Attribute               |               Type                |                                                        Description                                                        |
 | :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
-| id             |              `string`               |                             The unique ID of the chat                              |
-| companyId                  |              `string`               |                                           The id of the company this chat belongs to. |
+| id             |              `string`               |                             The unique ID of the chat.                              |
+| companyId                  |              `string`               |                                           The ID of the company this chat belongs to. |
 | companyName              |            `string`             |                                     The name of the company this chat belongs to.                                      |
 | createdAt               |            `Timestamp`            |                                            The timestamp of the chat creation.                                             |
 | currentAdmin             |              <code>string &#124; null</code>              | The name of the admin managing the chat. (For Unqueue Support chat).
@@ -109,7 +115,7 @@ When using the auth key for requests, the base URL for all requests to the Unque
 | shopperName             |              `string`              | The name of the user this chat belongs to.
 | unreadCompanyMessages             |              `number`              | The number of unread messages in this chat for the company.
 | unreadShopperMessages             |              `number`              | The number of unread messages in this chat for the user.
-| userId             |              `string`              | The id of the user this chat belongs to.
+| userId             |              `string`              | The ID of the user this chat belongs to.
 # Drivers
 
 <!-- The chats API allows you to create, view, and update individual chats. -->
@@ -148,13 +154,13 @@ The companies API allows you to create, view, and update individual companies.
 | acceptsPayouts          |              `bool`               |                                        True if the company accepts online payments                                        |
 | acceptsPortableCard     |              `bool`               |  True if the company accepts portable LINX/Debit payments. This must be true to enable LINX payments on a curbside order  |
 | active                  |              `bool`               |                                           True if the company can accept orders                                           |
-| address                 | The address object of the company |
+| address                 | [CompanyAddress](#company-address-properties) | An object representing the company address
 | categories              |            `string[]`             |                                     An array of category Id's the company belongs to                                      |
 | chatEnabled             |              `bool`               |                             (Legacy) True if the company accepts chat messages from shoppers                              |
 | customCheckoutEnabled             |              `bool`               |                             True if the company is using the custom checkout version of Unqueue                              |
 | createdAt               |            `Timestamp`            |                                            When the company was first created                                             |
 | deliveryFee             |              `float`              | The cost of deliveries set by the store. Only applicable for stores offering Delivery and not on Unqueue's driver network |
-| deliveryWindows         |        `DeliveryWindows[]`        |                                The days and time windows that the company offers delivery                                 |
+| deliveryWindows         |        [DeliveryWindows[]](#delivery-window-properties)        |                                The days and time windows that the company offers delivery                                 |
 | description             |             `string`              |                                            A short description of the company.                                            |
 | doesCurbside            |              `bool`               |                                         True if the company does Curbside Pickups                                         |
 | doesDelivery            |              `bool`               |                                   True if the company does Delivery as a pickup method.                                   |
@@ -182,7 +188,7 @@ The companies API allows you to create, view, and update individual companies.
 | onDriverNetwork         |              `bool`               |                                      True if on Unqueue's On Demand Delivery Network                                      |
 | onHiredDriverNetwork    |              `bool`               |                                      True if on Unqueue's Pre-order Delivery Network                                      |
 | onSaleCount             |             `number`              |                                         The number of items to store has on sale                                          |
-| openingDays             |          `OpeningDays[]`          |                                        The days and times that the company is open                                        |
+| openingDays             |          [OpeningDay[]](#opening-days-properties)          |                                        The days and times that the company is open                                        |
 | ownerFirstName          |             `string`              |                                 The first name of the person running the company account.                                 |
 | ownerLastName           |             `string`              |                                 The last name of the person running the company account.                                  |
 | packingTime             |             (Legacy).             |
@@ -197,6 +203,38 @@ The companies API allows you to create, view, and update individual companies.
 | unreadMessages          |             `number`              |                                                                                                                           |
 | views                   |             `number`              |                                         The number of time the company was viewed                                         |
 
+## Company Address Properties
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| address             |              `string`               |                                      The full address of the company.                                      |
+| addressLastUpdated             |              `Timestamp`               |                                         When last the company address has been updated.                                         |
+| location |              `GeoPoint`               |                   The coordinates of the company address.                   |
+| streetName          |              `string`               |                                        A shortened version of the company address.   
+| buildingNumber          |              `string`               |                                        The company's building number.   
+
+## Delivery Window Properties
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| closingTime             |              `Timestamp`               |                                      The time the company closes for business on this day.                                      |
+| day             |              `string`               |                                         The day of the week.                                         |
+| eveningPickup |              `bool`               |                   True if the company facilitates evening delivery.                   |
+| eveningPickupCutoffTime          |              `Timestamp`               |                                        The time a shopper must place an order by to have access to evening pickup for that day.   
+| label          |              `string`               |                                        A letter representation label of the day of the week.   
+| morningPickup          |              `bool`               |                                        True if the company facilitates morning delivery.   
+| morningPickupCutoffTime          |              `Timestamp`               |                                        The time a shopper must place an order by to have access to morning pickup for that day.   
+| open          |              `bool`               |                                        True if the company facilitates deliveries on this day.   
+| openingTime          |              `Timestamp`               |                                        The time the company opens for business on this day.   
+## Opening Days Properties
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| closingTime             |              `Timestamp`               |                                      The time the company closes for business on this day.                                      |
+| day             |              `string`               |                                         The day of the week.                                         |
+| label          |              `string`               |                                        A letter representation label of the day of the week.   
+| open          |              `bool`               |                                        True if the company is open for business on this day.   
+| openingTime          |              `Timestamp`               |                                        The time the company opens for business on this day.   
 ## Create Company
 
 Create a new company.
@@ -872,30 +910,6 @@ Retrieve details about a driver-trip.
 // END SECTION
 //////////////////////////////////////////////////////////////////////////////// -->
 
-## Update Product
-
-Update a product with new details.
-
-### Callable Function Name
-
-`updateProduct`
-
-### HTTP Request
-
-`POST /updateProduct`
-
-### Body
-
-| Parameter | Description                     |
-| --------- | ------------------------------- |
-| id        | The ID of the product to update |
-
-### Response
-
-<!-- ////////////////////////////////////////////////////////////////////////////////
-// END SECTION
-//////////////////////////////////////////////////////////////////////////////// -->
-
 # Discount Codes
 
 The discount-codes API allows you to create, view, and update individual discount-codes.
@@ -915,246 +929,6 @@ The discount-codes API allows you to create, view, and update individual discoun
 | uses      |               `number`               |                     The number of times the code has been used                     |
 | value     |               `number`               |                       The actual value of the discount code                        |
 
-## Create Discount Code
-
-Create a new discount cod.
-
-### Callable Function Name
-
-`createDriverTrip`
-
-### HTTP Request
-
-`POST /createDriverTrip`
-
-### Response
-
-```json
-{
-  "success": true,
-  "tripId": "abc123"
-}
-```
-
-<!-- ////////////////////////////////////////////////////////////////////////////////
-// END SECTION
-//////////////////////////////////////////////////////////////////////////////// -->
-
-## Get Discount Code
-
-Retrieve details about a driver-trip.
-
-### Callable Function Name
-
-`getDriverTrip`
-
-### HTTP Request
-
-`POST /getDriverTrip`
-
-### Body
-
-| Parameter | Description                           |
-| --------- | ------------------------------------- |
-| id        | The ID of the driver-trip to retrieve |
-
-### Response
-
-```json
-{
-  "data": {
-    "acceptsCard": true,
-    "acceptsCash": true,
-    "acceptsOrdersAfterHours": ,
-    "acceptsPayouts": true,
-    "acceptsPortableCard": false,
-    "active": true,
-    "address": {
-      "address": "Street name",
-      "buildingNumber": "24",
-      "location": {
-        "latitude": 62,
-        "longitude": 31
-      }
-    },
-    "categories": ["categoryId", "categoryId2"],
-    "chatEnabled": true,
-    "createdAt": 12,
-    "deliveryFee": 30,
-    "deliveryWindows": [{
-      "foo": "bar"
-    }],
-    "description": "Some store description",
-    "doesCurbside": true,
-    "doesDelivery": true,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-  }
-}
-```
-
-<!-- ////////////////////////////////////////////////////////////////////////////////
-// END SECTION
-//////////////////////////////////////////////////////////////////////////////// -->
-
-## Update Discount Code
-
-Update a product with new details.
-
-### Callable Function Name
-
-`updateProduct`
-
-### HTTP Request
-
-`POST /updateProduct`
-
-### Body
-
-| Parameter | Description                     |
-| --------- | ------------------------------- |
-| id        | The ID of the product to update |
-
-### Response
-
-<!-- ////////////////////////////////////////////////////////////////////////////////
-// END SECTION
-//////////////////////////////////////////////////////////////////////////////// -->
-
-# Product Categories
-
-The product categories API allows you to create, view, and update individual product categories. This is a sub-collection of the `companies` collection.
-
-## Product Category Properties
-
-| Attribute     |    Type     |                Description                 |
-| :------------ | :---------: | :----------------------------------------: |
-| id            |  `string`   |     The unique ID of the discount code     |
-| title         |  `string`   |    True if the code is enabled for use     |
-| isShowing     |   `bool`    |  The discount code that users will enter   |
-| order         |  `number`   | The companyId the discount code belongs to |
-| createdAt     | `Timestamp` |     When the discount code was created     |
-| availableDays |  `Array[]`  |  A description of the purpose of the code  |
-
-## Create Product Category
-
-Create a new product category.
-
-### Callable Function Name
-
-`createProductCategory`
-
-### HTTP Request
-
-`POST /createProductCategory`
-
-### Response
-
-```json
-{
-  "success": true,
-  "tripId": "abc123"
-}
-```
-
-<!-- ////////////////////////////////////////////////////////////////////////////////
-// END SECTION
-//////////////////////////////////////////////////////////////////////////////// -->
-
-## Get Product Category
-
-Retrieve details about a driver-trip.
-
-### Callable Function Name
-
-`getDriverTrip`
-
-### HTTP Request
-
-`POST /getDriverTrip`
-
-### Body
-
-| Parameter | Description                           |
-| --------- | ------------------------------------- |
-| id        | The ID of the driver-trip to retrieve |
-
-### Response
-
-```json
-{
-  "data": {
-    "acceptsCard": true,
-    "acceptsCash": true,
-    "acceptsOrdersAfterHours": ,
-    "acceptsPayouts": true,
-    "acceptsPortableCard": false,
-    "active": true,
-    "address": {
-      "address": "Street name",
-      "buildingNumber": "24",
-      "location": {
-        "latitude": 62,
-        "longitude": 31
-      }
-    },
-    "categories": ["categoryId", "categoryId2"],
-    "chatEnabled": true,
-    "createdAt": 12,
-    "deliveryFee": 30,
-    "deliveryWindows": [{
-      "foo": "bar"
-    }],
-    "description": "Some store description",
-    "doesCurbside": true,
-    "doesDelivery": true,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-    "": ,
-  }
-}
-```
-
-<!-- ////////////////////////////////////////////////////////////////////////////////
-// END SECTION
-//////////////////////////////////////////////////////////////////////////////// -->
-
-## Update Product Category
-
-Update a product with new details.
-
-### Callable Function Name
-
-`updateProduct`
-
-### HTTP Request
-
-`POST /updateProduct`
-
-### Body
-
-| Parameter | Description                     |
-| --------- | ------------------------------- |
-| id        | The ID of the product to update |
-
-### Response
 
 <!-- ////////////////////////////////////////////////////////////////////////////////
 // END SECTION
