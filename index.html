@@ -282,8 +282,8 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-791a6014.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-63d15f81.css" rel="stylesheet" media="print" />
+    <link href="stylesheets/screen-a679c4b7.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-d69f147f.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-a9fde460.js"></script>
 
     <script>
@@ -351,6 +351,15 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#company-properties" class="toc-h2 toc-link" data-title="Company Properties">Company Properties</a>
+                  </li>
+                  <li>
+                    <a href="#company-address-properties" class="toc-h2 toc-link" data-title="Company Address Properties">Company Address Properties</a>
+                  </li>
+                  <li>
+                    <a href="#delivery-window-properties" class="toc-h2 toc-link" data-title="Delivery Window Properties">Delivery Window Properties</a>
+                  </li>
+                  <li>
+                    <a href="#opening-days-properties" class="toc-h2 toc-link" data-title="Opening Days Properties">Opening Days Properties</a>
                   </li>
                   <li>
                     <a href="#create-company" class="toc-h2 toc-link" data-title="Create Company">Create Company</a>
@@ -425,9 +434,6 @@
                   <li>
                     <a href="#get-driver-trip" class="toc-h2 toc-link" data-title="Get Driver Trip">Get Driver Trip</a>
                   </li>
-                  <li>
-                    <a href="#update-product-2" class="toc-h2 toc-link" data-title="Update Product">Update Product</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -435,32 +441,6 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#discount-code-properties" class="toc-h2 toc-link" data-title="Discount Code Properties">Discount Code Properties</a>
-                  </li>
-                  <li>
-                    <a href="#create-discount-code" class="toc-h2 toc-link" data-title="Create Discount Code">Create Discount Code</a>
-                  </li>
-                  <li>
-                    <a href="#get-discount-code" class="toc-h2 toc-link" data-title="Get Discount Code">Get Discount Code</a>
-                  </li>
-                  <li>
-                    <a href="#update-discount-code" class="toc-h2 toc-link" data-title="Update Discount Code">Update Discount Code</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#product-categories" class="toc-h1 toc-link" data-title="Product Categories">Product Categories</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#product-category-properties" class="toc-h2 toc-link" data-title="Product Category Properties">Product Category Properties</a>
-                  </li>
-                  <li>
-                    <a href="#create-product-category" class="toc-h2 toc-link" data-title="Create Product Category">Create Product Category</a>
-                  </li>
-                  <li>
-                    <a href="#get-product-category" class="toc-h2 toc-link" data-title="Get Product Category">Get Product Category</a>
-                  </li>
-                  <li>
-                    <a href="#update-product-category" class="toc-h2 toc-link" data-title="Update Product Category">Update Product Category</a>
                   </li>
               </ul>
           </li>
@@ -506,8 +486,25 @@
 <h2 id='authentication'>Authentication</h2>
 <p>If you are using our API using the Firebase SDK, there is no need to do any authentication as long as you have initialized using Unqueue&#39;s credentials.</p>
 
-<p>If you are using our API via HTTP requests, ensure to add the <code>auth</code> header to your requests. You can register a new Unqueue auth key <a href='mailto:andel@agyei.design'>here</a>.</p>
+<p>If you are using our API via HTTP requests, ensure to add the <code>Authorization</code> header to your requests. We will provide you with a token. You can register a new Unqueue token by sending an email <a href='mailto:andel@agyei.design'>here</a>.</p>
 
+<blockquote>
+<p>Using the Authorization header, an axios example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">..your token..</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
+  <span class="nx">baseUrl</span><span class="p">,</span>
+  <span class="p">{</span>
+    <span class="c1">//...data</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div>
 <blockquote>
 <p>Using Callable Firebase functions:</p>
 </blockquote>
@@ -526,29 +523,14 @@
 <span class="p">};</span>
 </code></pre></div>
 <blockquote>
-<p>Using the auth header, an axios example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">..your token..</span><span class="dl">"</span><span class="p">;</span>
-
-<span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-  <span class="nx">baseUrl</span><span class="p">,</span>
-  <span class="p">{</span>
-    <span class="c1">//...data</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">auth</span><span class="p">:</span> <span class="nx">token</span><span class="p">,</span>
-    <span class="p">},</span>
-  <span class="p">}</span>
-<span class="p">);</span>
-</code></pre></div>
-<blockquote>
 <p>Make sure to replace <code>token</code> with your own key.</p>
 </blockquote>
 <h2 id='requests'>Requests</h2>
 <p>When using the auth key for requests, the base URL for all requests to the Unqueue API is:</p>
-
+<h3 id='testing'>Testing</h3>
 <p><code>https://us-central1-unqueue-staging.cloudfunctions.net</code></p>
+<h3 id='live'>Live</h3>
+<p>You will be provided with a live URL after your API request.</p>
 <h1 id='categories'>Categories</h1>
 <!-- The categories API allows you to create, view, and update individual categories. -->
 <h2 id='category-properties'>Category Properties</h2>
@@ -567,7 +549,7 @@
 <tr>
 <td style="text-align: left">createdAt</td>
 <td style="text-align: center"><code>Timestamp</code></td>
-<td style="text-align: center">The timestamp of the category creation. created</td>
+<td style="text-align: center">The timestamp of the category creation.</td>
 </tr>
 <tr>
 <td style="text-align: left">description</td>
@@ -618,12 +600,12 @@
 <tr>
 <td style="text-align: left">id</td>
 <td style="text-align: center"><code>string</code></td>
-<td style="text-align: center">The unique ID of the chat</td>
+<td style="text-align: center">The unique ID of the chat.</td>
 </tr>
 <tr>
 <td style="text-align: left">companyId</td>
 <td style="text-align: center"><code>string</code></td>
-<td style="text-align: center">The id of the company this chat belongs to.</td>
+<td style="text-align: center">The ID of the company this chat belongs to.</td>
 </tr>
 <tr>
 <td style="text-align: left">companyName</td>
@@ -673,7 +655,7 @@
 <tr>
 <td style="text-align: left">userId</td>
 <td style="text-align: center"><code>string</code></td>
-<td style="text-align: center">The id of the user this chat belongs to.</td>
+<td style="text-align: center">The ID of the user this chat belongs to.</td>
 </tr>
 </tbody></table>
 <h1 id='drivers'>Drivers</h1>
@@ -814,8 +796,8 @@
 </tr>
 <tr>
 <td style="text-align: left">address</td>
-<td style="text-align: center">The address object of the company</td>
-<td style="text-align: center"></td>
+<td style="text-align: center"><a href="#company-address-properties">CompanyAddress</a></td>
+<td style="text-align: center">An object representing the company address</td>
 </tr>
 <tr>
 <td style="text-align: left">categories</td>
@@ -844,7 +826,7 @@
 </tr>
 <tr>
 <td style="text-align: left">deliveryWindows</td>
-<td style="text-align: center"><code>DeliveryWindows[]</code></td>
+<td style="text-align: center"><a href="#delivery-window-properties">DeliveryWindows[]</a></td>
 <td style="text-align: center">The days and time windows that the company offers delivery</td>
 </tr>
 <tr>
@@ -984,7 +966,7 @@
 </tr>
 <tr>
 <td style="text-align: left">openingDays</td>
-<td style="text-align: center"><code>OpeningDays[]</code></td>
+<td style="text-align: center"><a href="#opening-days-properties">OpeningDay[]</a></td>
 <td style="text-align: center">The days and times that the company is open</td>
 </tr>
 <tr>
@@ -1051,6 +1033,128 @@
 <td style="text-align: left">views</td>
 <td style="text-align: center"><code>number</code></td>
 <td style="text-align: center">The number of time the company was viewed</td>
+</tr>
+</tbody></table>
+<h2 id='company-address-properties'>Company Address Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">address</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The full address of the company.</td>
+</tr>
+<tr>
+<td style="text-align: left">addressLastUpdated</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">When last the company address has been updated.</td>
+</tr>
+<tr>
+<td style="text-align: left">location</td>
+<td style="text-align: center"><code>GeoPoint</code></td>
+<td style="text-align: center">The coordinates of the company address.</td>
+</tr>
+<tr>
+<td style="text-align: left">streetName</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">A shortened version of the company address.</td>
+</tr>
+<tr>
+<td style="text-align: left">buildingNumber</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The company&#39;s building number.</td>
+</tr>
+</tbody></table>
+<h2 id='delivery-window-properties'>Delivery Window Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">closingTime</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The time the company closes for business on this day.</td>
+</tr>
+<tr>
+<td style="text-align: left">day</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The day of the week.</td>
+</tr>
+<tr>
+<td style="text-align: left">eveningPickup</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company facilitates evening delivery.</td>
+</tr>
+<tr>
+<td style="text-align: left">eveningPickupCutoffTime</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The time a shopper must place an order by to have access to evening pickup for that day.</td>
+</tr>
+<tr>
+<td style="text-align: left">label</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">A letter representation label of the day of the week.</td>
+</tr>
+<tr>
+<td style="text-align: left">morningPickup</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company facilitates morning delivery.</td>
+</tr>
+<tr>
+<td style="text-align: left">morningPickupCutoffTime</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The time a shopper must place an order by to have access to morning pickup for that day.</td>
+</tr>
+<tr>
+<td style="text-align: left">open</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company facilitates deliveries on this day.</td>
+</tr>
+<tr>
+<td style="text-align: left">openingTime</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The time the company opens for business on this day.</td>
+</tr>
+</tbody></table>
+<h2 id='opening-days-properties'>Opening Days Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">closingTime</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The time the company closes for business on this day.</td>
+</tr>
+<tr>
+<td style="text-align: left">day</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The day of the week.</td>
+</tr>
+<tr>
+<td style="text-align: left">label</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">A letter representation label of the day of the week.</td>
+</tr>
+<tr>
+<td style="text-align: left">open</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the company is open for business on this day.</td>
+</tr>
+<tr>
+<td style="text-align: left">openingTime</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The time the company opens for business on this day.</td>
 </tr>
 </tbody></table>
 <h2 id='create-company'>Create Company</h2>
@@ -2176,28 +2280,6 @@
 <!-- ////////////////////////////////////////////////////////////////////////////////
 // END SECTION
 //////////////////////////////////////////////////////////////////////////////// -->
-<h2 id='update-product-2'>Update Product</h2>
-<p>Update a product with new details.</p>
-<h3 id='callable-function-name-12'>Callable Function Name</h3>
-<p><code>updateProduct</code></p>
-<h3 id='http-request-12'>HTTP Request</h3>
-<p><code>POST /updateProduct</code></p>
-<h3 id='body-11'>Body</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>The ID of the product to update</td>
-</tr>
-</tbody></table>
-<h3 id='response-12'>Response</h3>
-<!-- ////////////////////////////////////////////////////////////////////////////////
-// END SECTION
-//////////////////////////////////////////////////////////////////////////////// -->
 <h1 id='discount-codes'>Discount Codes</h1>
 <p>The discount-codes API allows you to create, view, and update individual discount-codes.</p>
 <h2 id='discount-code-properties'>Discount Code Properties</h2>
@@ -2259,238 +2341,7 @@
 <td style="text-align: center">The actual value of the discount code</td>
 </tr>
 </tbody></table>
-<h2 id='create-discount-code'>Create Discount Code</h2>
-<p>Create a new discount cod.</p>
-<h3 id='callable-function-name-13'>Callable Function Name</h3>
-<p><code>createDriverTrip</code></p>
-<h3 id='http-request-13'>HTTP Request</h3>
-<p><code>POST /createDriverTrip</code></p>
-<h3 id='response-13'>Response</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<!-- ////////////////////////////////////////////////////////////////////////////////
-// END SECTION
-//////////////////////////////////////////////////////////////////////////////// -->
-<h2 id='get-discount-code'>Get Discount Code</h2>
-<p>Retrieve details about a driver-trip.</p>
-<h3 id='callable-function-name-14'>Callable Function Name</h3>
-<p><code>getDriverTrip</code></p>
-<h3 id='http-request-14'>HTTP Request</h3>
-<p><code>POST /getDriverTrip</code></p>
-<h3 id='body-12'>Body</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>The ID of the driver-trip to retrieve</td>
-</tr>
-</tbody></table>
-<h3 id='response-14'>Response</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"acceptsCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acceptsCash"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acceptsOrdersAfterHours"</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acceptsPayouts"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acceptsPortableCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Street name"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"buildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">62</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"categoryId"</span><span class="p">,</span><span class="w"> </span><span class="s2">"categoryId2"</span><span class="p">],</span><span class="w">
-    </span><span class="nl">"chatEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"deliveryFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"deliveryWindows"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-      </span><span class="nl">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
-    </span><span class="p">}],</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some store description"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"doesCurbside"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"doesDelivery"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<!-- ////////////////////////////////////////////////////////////////////////////////
-// END SECTION
-//////////////////////////////////////////////////////////////////////////////// -->
-<h2 id='update-discount-code'>Update Discount Code</h2>
-<p>Update a product with new details.</p>
-<h3 id='callable-function-name-15'>Callable Function Name</h3>
-<p><code>updateProduct</code></p>
-<h3 id='http-request-15'>HTTP Request</h3>
-<p><code>POST /updateProduct</code></p>
-<h3 id='body-13'>Body</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>The ID of the product to update</td>
-</tr>
-</tbody></table>
-<h3 id='response-15'>Response</h3>
-<!-- ////////////////////////////////////////////////////////////////////////////////
-// END SECTION
-//////////////////////////////////////////////////////////////////////////////// -->
-<h1 id='product-categories'>Product Categories</h1>
-<p>The product categories API allows you to create, view, and update individual product categories. This is a sub-collection of the <code>companies</code> collection.</p>
-<h2 id='product-category-properties'>Product Category Properties</h2>
-<table><thead>
-<tr>
-<th style="text-align: left">Attribute</th>
-<th style="text-align: center">Type</th>
-<th style="text-align: center">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">id</td>
-<td style="text-align: center"><code>string</code></td>
-<td style="text-align: center">The unique ID of the discount code</td>
-</tr>
-<tr>
-<td style="text-align: left">title</td>
-<td style="text-align: center"><code>string</code></td>
-<td style="text-align: center">True if the code is enabled for use</td>
-</tr>
-<tr>
-<td style="text-align: left">isShowing</td>
-<td style="text-align: center"><code>bool</code></td>
-<td style="text-align: center">The discount code that users will enter</td>
-</tr>
-<tr>
-<td style="text-align: left">order</td>
-<td style="text-align: center"><code>number</code></td>
-<td style="text-align: center">The companyId the discount code belongs to</td>
-</tr>
-<tr>
-<td style="text-align: left">createdAt</td>
-<td style="text-align: center"><code>Timestamp</code></td>
-<td style="text-align: center">When the discount code was created</td>
-</tr>
-<tr>
-<td style="text-align: left">availableDays</td>
-<td style="text-align: center"><code>Array[]</code></td>
-<td style="text-align: center">A description of the purpose of the code</td>
-</tr>
-</tbody></table>
-<h2 id='create-product-category'>Create Product Category</h2>
-<p>Create a new product category.</p>
-<h3 id='callable-function-name-16'>Callable Function Name</h3>
-<p><code>createProductCategory</code></p>
-<h3 id='http-request-16'>HTTP Request</h3>
-<p><code>POST /createProductCategory</code></p>
-<h3 id='response-16'>Response</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<!-- ////////////////////////////////////////////////////////////////////////////////
-// END SECTION
-//////////////////////////////////////////////////////////////////////////////// -->
-<h2 id='get-product-category'>Get Product Category</h2>
-<p>Retrieve details about a driver-trip.</p>
-<h3 id='callable-function-name-17'>Callable Function Name</h3>
-<p><code>getDriverTrip</code></p>
-<h3 id='http-request-17'>HTTP Request</h3>
-<p><code>POST /getDriverTrip</code></p>
-<h3 id='body-14'>Body</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>The ID of the driver-trip to retrieve</td>
-</tr>
-</tbody></table>
-<h3 id='response-17'>Response</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"acceptsCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acceptsCash"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acceptsOrdersAfterHours"</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acceptsPayouts"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acceptsPortableCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Street name"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"buildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">62</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"categoryId"</span><span class="p">,</span><span class="w"> </span><span class="s2">"categoryId2"</span><span class="p">],</span><span class="w">
-    </span><span class="nl">"chatEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"deliveryFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"deliveryWindows"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-      </span><span class="nl">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
-    </span><span class="p">}],</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some store description"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"doesCurbside"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"doesDelivery"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<!-- ////////////////////////////////////////////////////////////////////////////////
-// END SECTION
-//////////////////////////////////////////////////////////////////////////////// -->
-<h2 id='update-product-category'>Update Product Category</h2>
-<p>Update a product with new details.</p>
-<h3 id='callable-function-name-18'>Callable Function Name</h3>
-<p><code>updateProduct</code></p>
-<h3 id='http-request-18'>HTTP Request</h3>
-<p><code>POST /updateProduct</code></p>
-<h3 id='body-15'>Body</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>The ID of the product to update</td>
-</tr>
-</tbody></table>
-<h3 id='response-18'>Response</h3>
+
 <!-- ////////////////////////////////////////////////////////////////////////////////
 // END SECTION
 //////////////////////////////////////////////////////////////////////////////// -->
