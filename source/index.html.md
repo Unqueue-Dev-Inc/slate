@@ -235,6 +235,19 @@ The companies API allows you to create, view, and update individual companies.
 | label          |              `string`               |                                        A letter representation label of the day of the week.   
 | open          |              `bool`               |                                        True if the company is open for business on this day.   
 | openingTime          |              `Timestamp`               |                                        The time the company opens for business on this day.   
+
+## Update Data Properties
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| cashAmount          |              `number`              |                                        The amount of cash the shopper is paying with, entered at checkout.   
+| deliveryAddress          |              `object`              |                                        An object representing the user address.   
+| deliveryFee             |              `number`               |                                      The cost of delivery.                                      |
+| deliveryWindow             |              `dddd Do MMMM`            |            The selected date for delivery in string format  |
+| requestedBy          |              <code>Business &#124; Shopper</code>               |        Whoever requested the reschedule or change to the order.   
+| timeWindow          |              `string`               |                                        Whether this order will be delivered as part of the morning or evening shift.   
+| total          |              `bool`               |                                        The total cost of the order including delivery, addons and variations.   
+
 ## Create Company
 
 Create a new company.
