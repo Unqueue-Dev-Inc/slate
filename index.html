@@ -362,6 +362,9 @@
                     <a href="#opening-days-properties" class="toc-h2 toc-link" data-title="Opening Days Properties">Opening Days Properties</a>
                   </li>
                   <li>
+                    <a href="#update-data-properties" class="toc-h2 toc-link" data-title="Update Data Properties">Update Data Properties</a>
+                  </li>
+                  <li>
                     <a href="#create-company" class="toc-h2 toc-link" data-title="Create Company">Create Company</a>
                   </li>
                   <li>
@@ -896,8 +899,8 @@
 </tr>
 <tr>
 <td style="text-align: left">lastStep</td>
-<td style="text-align: center"><code>string</code></td>
-<td style="text-align: center">A string representing the user&#39;s last step during sign up.</td>
+<td style="text-align: center"><code>BusinessSetup &#124; BusinessAddress &#124; MailingAddress &#124; Payments &#124; BusinessOperations &#124; Categories </code></td>
+<td style="text-align: center">A string representing the user&#39;s last step while still completing the sign up process.</td>
 </tr>
 <tr>
 <td style="text-align: left">logo</td>
@@ -1155,6 +1158,50 @@
 <td style="text-align: left">openingTime</td>
 <td style="text-align: center"><code>Timestamp</code></td>
 <td style="text-align: center">The time the company opens for business on this day.</td>
+</tr>
+</tbody></table>
+<h2 id='update-data-properties'>Update Data Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">cashAmount</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The amount of cash the shopper is paying with, entered at checkout.</td>
+</tr>
+<tr>
+<td style="text-align: left">deliveryAddress</td>
+<td style="text-align: center"><code>object</code></td>
+<td style="text-align: center">An object representing the user address.</td>
+</tr>
+<tr>
+<td style="text-align: left">deliveryFee</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The cost of delivery.</td>
+</tr>
+<tr>
+<td style="text-align: left">deliveryWindow</td>
+<td style="text-align: center"><code>dddd Do MMMM</code></td>
+<td style="text-align: center">The selected date for delivery in string format</td>
+</tr>
+<tr>
+<td style="text-align: left">requestedBy</td>
+<td style="text-align: center"><code>Business &#124; Shopper</code></td>
+<td style="text-align: center">Whoever requested the reschedule or change to the order.</td>
+</tr>
+<tr>
+<td style="text-align: left">timeWindow</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">Whether this order will be delivered as part of the morning or evening shift.</td>
+</tr>
+<tr>
+<td style="text-align: left">total</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">The total cost of the order including delivery, addons and variations.</td>
 </tr>
 </tbody></table>
 <h2 id='create-company'>Create Company</h2>
