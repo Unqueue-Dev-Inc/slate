@@ -365,6 +365,12 @@
                     <a href="#update-data-properties" class="toc-h2 toc-link" data-title="Update Data Properties">Update Data Properties</a>
                   </li>
                   <li>
+                    <a href="#company-variation-properties" class="toc-h2 toc-link" data-title="Company Variation Properties">Company Variation Properties</a>
+                  </li>
+                  <li>
+                    <a href="#option-properties" class="toc-h2 toc-link" data-title="Option Properties">Option Properties</a>
+                  </li>
+                  <li>
                     <a href="#create-company" class="toc-h2 toc-link" data-title="Create Company">Create Company</a>
                   </li>
                   <li>
@@ -1202,6 +1208,68 @@
 <td style="text-align: left">total</td>
 <td style="text-align: center"><code>bool</code></td>
 <td style="text-align: center">The total cost of the order including delivery, addons and variations.</td>
+</tr>
+</tbody></table>
+<h2 id='company-variation-properties'>Company Variation Properties</h2>
+<p><code>Path: /companies/{companyId}/variations/{variationId}</code></p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">freeSelections</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The number of selections that can be made before a cost is applied</td>
+</tr>
+<tr>
+<td style="text-align: left">maximumToSelect</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The maximum number of options a user can select.</td>
+</tr>
+<tr>
+<td style="text-align: left">minimumToSelect</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The minimum number of options a user must select. 0 means unlimited.</td>
+</tr>
+<tr>
+<td style="text-align: left">options</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">A string representation of the options for this variation group</td>
+</tr>
+<tr>
+<td style="text-align: left">title</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The title of this variation.</td>
+</tr>
+</tbody></table>
+<h2 id='option-properties'>Option Properties</h2>
+<p><code>Path: /companies/{companyId}/variations/{variationId}/options/{optionId}</code></p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">active</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the option is active and should be shown.</td>
+</tr>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The name of the option.</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The additional price of the option.</td>
 </tr>
 </tbody></table>
 <h2 id='create-company'>Create Company</h2>
