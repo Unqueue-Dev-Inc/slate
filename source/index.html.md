@@ -267,6 +267,7 @@ The companies API allows you to create, view, and update individual companies.
 | :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
 | active             |              `bool`               |                                      True if the option is active and should be shown.                                      |
 | name             |              `string`               |                                         The name of the option.
+| order             |              `number`               |                                         The position of this option in the list.
 | price             |              `number`               |                                         The additional price of the option.
 
 ## Create Company
