@@ -248,6 +248,27 @@ The companies API allows you to create, view, and update individual companies.
 | timeWindow          |              `string`               |                                        Whether this order will be delivered as part of the morning or evening shift.   
 | total          |              `bool`               |                                        The total cost of the order including delivery, addons and variations.   
 
+## Company Variation Properties
+
+`Path: /companies/{companyId}/variations/{variationId}`
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| freeSelections             |              `number`               |                                      The number of selections that can be made before a cost is applied                                      |
+| maximumToSelect             |              `number`               |                                         The maximum number of options a user can select. 
+| minimumToSelect             |              `number`               |                                         The minimum number of options a user must select. 0 means unlimited.  
+| options             |              `string`               |                                         A string representation of the options for this variation group 
+| title             |              `string`               |                                         The title of this variation.
+
+## Option Properties
+`Path: /companies/{companyId}/variations/{variationId}/options/{optionId}`
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| active             |              `bool`               |                                      True if the option is active and should be shown.                                      |
+| name             |              `string`               |                                         The name of the option.
+| price             |              `number`               |                                         The additional price of the option.
+
 ## Create Company
 
 Create a new company.
