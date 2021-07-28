@@ -353,6 +353,9 @@
                     <a href="#company-properties" class="toc-h2 toc-link" data-title="Company Properties">Company Properties</a>
                   </li>
                   <li>
+                    <a href="#company-mailing-info" class="toc-h2 toc-link" data-title="Company Mailing Info">Company Mailing Info</a>
+                  </li>
+                  <li>
                     <a href="#company-address-properties" class="toc-h2 toc-link" data-title="Company Address Properties">Company Address Properties</a>
                   </li>
                   <li>
@@ -369,6 +372,9 @@
                   </li>
                   <li>
                     <a href="#option-properties" class="toc-h2 toc-link" data-title="Option Properties">Option Properties</a>
+                  </li>
+                  <li>
+                    <a href="#verification-document-properties" class="toc-h2 toc-link" data-title="Verification Document Properties">Verification Document Properties</a>
                   </li>
                   <li>
                     <a href="#create-company" class="toc-h2 toc-link" data-title="Create Company">Create Company</a>
@@ -905,7 +911,7 @@
 </tr>
 <tr>
 <td style="text-align: left">lastStep</td>
-<td style="text-align: center"><code>BusinessSetup &#124; BusinessAddress &#124; MailingAddress &#124; Payments &#124; BusinessOperations &#124; Categories </code></td>
+<td style="text-align: center"><code>string</code></td>
 <td style="text-align: center">A string representing the user&#39;s last step while still completing the sign up process.</td>
 </tr>
 <tr>
@@ -932,6 +938,11 @@
 <td style="text-align: left">logoThumb640</td>
 <td style="text-align: center"><code>string</code></td>
 <td style="text-align: center">The URL of the company&#39;s logo with dimensions 640 x 640</td>
+</tr>
+<tr>
+<td style="text-align: left">mailingInfo</td>
+<td style="text-align: center"><a href="#company-mailing-info">MailingInfo</a></td>
+<td style="text-align: center">The mailing address of the company. This is used to determine where to send packages to.</td>
 </tr>
 <tr>
 <td style="text-align: left">masterVerified</td>
@@ -1042,6 +1053,30 @@
 <td style="text-align: left">views</td>
 <td style="text-align: center"><code>number</code></td>
 <td style="text-align: center">The number of time the company was viewed</td>
+</tr>
+</tbody></table>
+<h2 id='company-mailing-info'>Company Mailing Info</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">city</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">line1</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: left">line2</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center"></td>
 </tr>
 </tbody></table>
 <h2 id='company-address-properties'>Company Address Properties</h2>
@@ -1275,6 +1310,47 @@
 <td style="text-align: left">price</td>
 <td style="text-align: center"><code>number</code></td>
 <td style="text-align: center">The additional price of the option.</td>
+</tr>
+</tbody></table>
+<h2 id='verification-document-properties'>Verification Document Properties</h2>
+<p><code>Path: /companies/{companyId}/verification/{verificationId}</code></p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">companyId</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The company ID.</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">When the document was uploaded</td>
+</tr>
+<tr>
+<td style="text-align: left">label</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The label of the document.</td>
+</tr>
+<tr>
+<td style="text-align: left">processing</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the document is currently being reviewed and processed</td>
+</tr>
+<tr>
+<td style="text-align: left">url</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">A url pointing to the uploaded document.</td>
+</tr>
+<tr>
+<td style="text-align: left">verified</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the document has been verified.</td>
 </tr>
 </tbody></table>
 <h2 id='create-company'>Create Company</h2>
