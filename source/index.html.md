@@ -180,6 +180,7 @@ The companies API allows you to create, view, and update individual companies.
 | logoThumb100            |             `string`     | The URL of the company's logo with dimensions 100 x 100.                                                                                                                           |
 | logoThumb300            |             `string` | The URL of the company's logo with dimensions 300 x 300                                                                                                                           |
 | logoThumb640            |             `string`  | The URL of the company's logo with dimensions 640 x 640                                                                                                                           |
+| mailingInfo          |              `MailingInfo`               |                                 The mailing address of the company. This is used to determine where to send packages to.                                  |
 | masterVerified          |              `bool`               |                                 True if the company account is enabled by Unqueue admin.                                  |
 | maxDeliveryTime         |       <code>20 Mins &#124; 30 Mins &#124; 40 Mins &#124; 60 Mins</code>        |       A string representation of how far a business is willing to deliver. Only applies if not on Unqueue Delivery        |
 | minForDelivery          |              `float`              |          The minimum that a shopper must spend to qualify for delivery. Only applies if not on Unqueue Delivery           |
@@ -203,6 +204,13 @@ The companies API allows you to create, view, and update individual companies.
 | unreadMessages          |             `number`              |                                                                                                                           |
 | views                   |             `number`              |                                         The number of time the company was viewed                                         |
 
+## Company Mailing Info
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| city             |              `string`               |                                                        |
+| line1             |              `string`               |                                                                               |
+| line2 |              `string`               |                                |
 ## Company Address Properties
 
 | Attribute               |               Type                |                                                        Description                                                        |
