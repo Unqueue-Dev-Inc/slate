@@ -278,6 +278,18 @@ The companies API allows you to create, view, and update individual companies.
 | order             |              `number`               |                                         The position of this option in the list.
 | price             |              `number`               |                                         The additional price of the option.
 
+## Verification Document Properties
+`Path: /companies/{companyId}/verification/{verificationId}`
+
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| companyId             |              `string`               |                                      The company ID.                                      |
+| createdAt             |              `Timestamp`               |                                         When the document was uploaded
+| label             |              `string`               |                                         The label of the document.
+| processing             |              `bool`               |                                         True if the document is currently being reviewed and processed
+| url             |              `string`               |                                         A url pointing to the uploaded document.
+| verified             |              `bool`               |                                         True if the document has been verified.
+
 ## Create Company
 
 Create a new company.
