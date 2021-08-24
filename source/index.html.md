@@ -290,6 +290,42 @@ The companies API allows you to create, view, and update individual companies.
 | url             |              `string`               |                                         A url pointing to the uploaded document.
 | verified             |              `bool`               |                                         True if the document has been verified.
 
+## Company Product Category Properties
+`Path: /companies/{companyId}/product-categories/{productCategoryId}`
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| availableDays             |              `string`               |                                      The available days for this category's products.                                      |
+| createdAt             |              `Timestamp`               |                                         When the category was created.
+| count             |              `string`               |                                         The number of products in the category.
+| isShowing             |              `bool`               |                                         True if the category is visible.
+| order             |              `string`               |                                         The order of this category in the list.
+| title             |              `bool`               |                                         The name of the category.
+
+## Company Products
+`Path: /companies/{companyId}/product-categories/{productCategoryId}/products/{productId}`
+
+| Attribute                      |     Type      |                                                       Description                                                        |
+| :----------------------------- | :-----------: | :----------------------------------------------------------------------------------------------------------------------: |
+| id                             |   `string`    |                                                  The ID of the product                                                   |
+| categoryId                     |   `string`    |                                          The categoryId the product belongs to                                           |
+| categoryName                   |   `string`    |                                           The category the product belongs to                                            |
+| createdAt                      |  `Timestamp`  | The timestamp of the product's creation.                                                                                                                         |
+| description                    |   `string`    |                                          Short description of the product                                           |
+| hasAddons                      |    `bool`     |                                             True if the product has add-ons                                              |
+| hasVariations                  |    `bool`     |                                            True if the product has variations                                            |
+| image                          |   `string`    |                                         URL of the featured/first product image                                          |
+| inStock                        |    `bool`     |                                             The stock status of the product                                              |
+| onSale                        |    `bool`     |                                             True if the product is on sale.                                              |
+| order                          |   `number`    |                                           The position of the product in list                                            |
+| packingTime                    | `packingTime` |                               A representation of how long it takes to prepare the product                               |
+| price                          |    `float`    |  The price of the product.                                                                                                                        |
+| purchases                      |   `number`    |                                     The number of times the product has been bought                                      |
+| salePrice                      |   `number`    |                                              The sale price of the product                                               |
+| stockCount                     |   `number`    |                               The quantity of products. `null` if not tracking stock count                               |
+| title                          |   `string`    |                                                 The name of the category                                                 |
+| trackStock                     |    `bool`     |                        True if tracking inventory. Orders of this product will reduce stock count                        |
+| views                          |   `number`    |                                     The number of times the product has been viewed                                      |
+
 ## Create Company
 
 Create a new company.
