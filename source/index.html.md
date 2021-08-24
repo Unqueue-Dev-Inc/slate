@@ -292,6 +292,7 @@ The companies API allows you to create, view, and update individual companies.
 
 ## Company Product Category Properties
 `Path: /companies/{companyId}/product-categories/{productCategoryId}`
+
 | Attribute               |               Type                |                                                        Description                                                        |
 | :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
 | availableDays             |              `string`               |                                      The available days for this category's products.                                      |
