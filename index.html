@@ -377,6 +377,12 @@
                     <a href="#verification-document-properties" class="toc-h2 toc-link" data-title="Verification Document Properties">Verification Document Properties</a>
                   </li>
                   <li>
+                    <a href="#company-product-category-properties" class="toc-h2 toc-link" data-title="Company Product Category Properties">Company Product Category Properties</a>
+                  </li>
+                  <li>
+                    <a href="#company-products" class="toc-h2 toc-link" data-title="Company Products">Company Products</a>
+                  </li>
+                  <li>
                     <a href="#create-company" class="toc-h2 toc-link" data-title="Create Company">Create Company</a>
                   </li>
                   <li>
@@ -1351,6 +1357,122 @@
 <td style="text-align: left">verified</td>
 <td style="text-align: center"><code>bool</code></td>
 <td style="text-align: center">True if the document has been verified.</td>
+</tr>
+</tbody></table>
+<h2 id='company-product-category-properties'>Company Product Category Properties</h2>
+<p><code>Path: /companies/{companyId}/product-categories/{productCategoryId}</code>
+| Attribute               |               Type                |                                                        Description                                                        |
+| :---------------------- | :-------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| availableDays             |              <code>string</code>               |                                      The available days for this category&#39;s products.                                      |
+| createdAt             |              <code>Timestamp</code>               |                                         When the category was created.
+| count             |              <code>string</code>               |                                         The number of products in the category.
+| isShowing             |              <code>bool</code>               |                                         True if the category is visible.
+| order             |              <code>string</code>               |                                         The order of this category in the list.
+| title             |              <code>bool</code>               |                                         The name of the category.</p>
+<h2 id='company-products'>Company Products</h2>
+<p><code>Path: /companies/{companyId}/product-categories/{productCategoryId}/products/{productId}</code></p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The ID of the product</td>
+</tr>
+<tr>
+<td style="text-align: left">categoryId</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The categoryId the product belongs to</td>
+</tr>
+<tr>
+<td style="text-align: left">categoryName</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The category the product belongs to</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: center"><code>Timestamp</code></td>
+<td style="text-align: center">The timestamp of the product&#39;s creation.</td>
+</tr>
+<tr>
+<td style="text-align: left">description</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">Short description of the product</td>
+</tr>
+<tr>
+<td style="text-align: left">hasAddons</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the product has add-ons</td>
+</tr>
+<tr>
+<td style="text-align: left">hasVariations</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the product has variations</td>
+</tr>
+<tr>
+<td style="text-align: left">image</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">URL of the featured/first product image</td>
+</tr>
+<tr>
+<td style="text-align: left">inStock</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">The stock status of the product</td>
+</tr>
+<tr>
+<td style="text-align: left">onSale</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if the product is on sale.</td>
+</tr>
+<tr>
+<td style="text-align: left">order</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The position of the product in list</td>
+</tr>
+<tr>
+<td style="text-align: left">packingTime</td>
+<td style="text-align: center"><code>packingTime</code></td>
+<td style="text-align: center">A representation of how long it takes to prepare the product</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: center"><code>float</code></td>
+<td style="text-align: center">The price of the product.</td>
+</tr>
+<tr>
+<td style="text-align: left">purchases</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The number of times the product has been bought</td>
+</tr>
+<tr>
+<td style="text-align: left">salePrice</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The sale price of the product</td>
+</tr>
+<tr>
+<td style="text-align: left">stockCount</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The quantity of products. <code>null</code> if not tracking stock count</td>
+</tr>
+<tr>
+<td style="text-align: left">title</td>
+<td style="text-align: center"><code>string</code></td>
+<td style="text-align: center">The name of the category</td>
+</tr>
+<tr>
+<td style="text-align: left">trackStock</td>
+<td style="text-align: center"><code>bool</code></td>
+<td style="text-align: center">True if tracking inventory. Orders of this product will reduce stock count</td>
+</tr>
+<tr>
+<td style="text-align: left">views</td>
+<td style="text-align: center"><code>number</code></td>
+<td style="text-align: center">The number of times the product has been viewed</td>
 </tr>
 </tbody></table>
 <h2 id='create-company'>Create Company</h2>
